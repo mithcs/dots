@@ -1,0 +1,281 @@
+# SkyyySi's Nordic i3 config file
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+### Variables for settings (This makes changing them WAY easyer!) ###
+set $mod                             Mod4
+set $smod                            Shift
+set $alt                             Mod1
+set $wm_setting_font                 pango:JetBrainsMono Nerd Font, Semibold 11
+set $wm_setting_gap_width            5
+set $wm_setting_gap_heigth           5
+set $wm_setting_border_size          2
+set $wm_setting_key_left             h
+set $wm_setting_key_down             j
+set $wm_setting_key_up               k
+set $wm_setting_key_right            l
+
+set $wm_setting_app_files            thunar
+set $wm_setting_app_terminal         st
+set $wm_setting_app_browser          chromium
+set $wm_setting_app_launcher         $HOME/.config/rofi/launchers/type-1/launcher.sh
+
+set $wm_color_border_active_bg       #81A1C1
+set $wm_color_border_active_fg       #3B4252
+set $wm_color_border_inactive_bg     #3B4252
+set $wm_color_border_inactive_fg     #D8DEE9
+set $wm_color_background             #2E3440
+
+set $scripts_dir                     $HOME/zzz
+
+# Catppuccin Colors
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
+
+
+### Applications ###
+
+# Start a terminal emulator
+bindsym $mod+Return exec --no-startup-id $wm_setting_app_terminal
+
+# Start a web browser
+bindsym $mod+$smod+Return exec --no-startup-id $wm_setting_app_browser
+
+# Start a program launcher
+bindsym $mod+p exec --no-startup-id $wm_setting_app_launcher
+
+# Start a file manager
+bindsym $mod+e exec --no-startup-id $wm_setting_app_files
+
+# Start Network manager
+bindsym Pause exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/alacrittyBW.toml --command nmtui
+
+# Start neomutt
+bindsym $mod+n exec --no-startup-id $wm_setting_app_terminal -e neomutt
+
+# Start MEGAsync
+bindsym $mod+m exec --no-startup-id megasync
+
+# Start RofiFinder
+bindsym $mod+o exec $scripts_dir/RofiFinder.sh --launch
+
+# Start btop
+bindsym $mod+q exec --no-startup-id $wm_setting_app_terminal btop
+
+
+### Workspaces ###
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1  "    1    "
+set $ws2  "    2    "
+set $ws3  "    3    "
+set $ws4  "    4    "
+set $ws5  "    5    "
+set $ws6  "    6    "
+set $ws7  "    7    "
+set $ws8  "    8    "
+set $ws9  "    9    "
+set $ws10 "    10    "
+
+# Switch to workspace n
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace n
+bindsym $mod+$smod+1 move container to workspace $ws1
+bindsym $mod+$smod+2 move container to workspace $ws2
+bindsym $mod+$smod+3 move container to workspace $ws3
+bindsym $mod+$smod+4 move container to workspace $ws4
+bindsym $mod+$smod+5 move container to workspace $ws5
+bindsym $mod+$smod+6 move container to workspace $ws6
+bindsym $mod+$smod+7 move container to workspace $ws7
+bindsym $mod+$smod+8 move container to workspace $ws8
+bindsym $mod+$smod+9 move container to workspace $ws9
+bindsym $mod+$smod+0 move container to workspace $ws10
+
+### Window sizes and positions ###
+# Change focus
+# bindsym $mod+$wm_setting_key_left        focus left
+# bindsym $mod+$wm_setting_key_down        focus down
+# bindsym $mod+$wm_setting_key_up          focus up
+# bindsym $mod+$wm_setting_key_right       focus right
+
+bindsym $mod+$wm_setting_key_left        focus left
+bindsym $mod+$wm_setting_key_down        focus down
+bindsym $mod+$wm_setting_key_up          focus up
+bindsym $mod+$wm_setting_key_right       focus right
+
+# Move focused window
+bindsym $mod+$smod+$wm_setting_key_left          move left
+bindsym $mod+$smod+$wm_setting_key_down          move down
+bindsym $mod+$smod+$wm_setting_key_up            move up
+bindsym $mod+$smod+$wm_setting_key_right         move right
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+#	These bindings trigger as soon as you enter the resize mode
+
+#	Pressing left will shrink the window’s width.
+#	Pressing right will grow the window’s width.
+#	Pressing up will shrink the window’s height.
+#	Pressing down will grow the window’s height.
+	bindsym $wm_setting_key_left  resize shrink width 10 px or 10 ppt
+	bindsym $wm_setting_key_down  resize grow height 10 px or 10 ppt
+	bindsym $wm_setting_key_up    resize shrink height 10 px or 10 ppt
+	bindsym $wm_setting_key_right resize grow width 10 px or 10 ppt
+
+
+#	Resize the gap width and height
+#   DOESNT DAMN WORK
+	# bindsym $smod+$wm_setting_key_left  gaps horizontal minus 5
+	# bindsym $smod+$wm_setting_key_down  gaps horizontal plus 5
+	# bindsym $smod+$wm_setting_key_up    gaps vertical minus 5
+	# bindsym $smod+$wm_setting_key_right gaps vertical plus 5
+
+#	Back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ### Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+$smod+s layout stacking
+bindsym $mod+$smod+w layout tabbed
+bindsym $mod+$smod+t layout toggle split
+#         ^^^^^^ duplicate as in bindsym of file_manager
+
+### Gaps ###
+gaps horizontal $wm_setting_gap_width
+gaps vertical   $wm_setting_gap_heigth
+gaps inner 5
+gaps outer 2
+smart_gaps off
+
+### Borders ###
+default_border pixel $wm_setting_border_size
+default_floating_border pixel $wm_setting_border_size
+smart_borders on
+
+### Colors ###
+# # class                 border                       background                   text                         indicator                    child_border
+# client.focused          $wm_color_border_active_bg   $wm_color_border_active_bg   $wm_color_border_active_fg   $wm_color_border_active_bg   $wm_color_border_active_bg
+# client.focused_inactive $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg $wm_color_border_inactive_bg
+# client.unfocused        $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg $wm_color_border_inactive_bg
+# client.urgent           $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg $wm_color_border_inactive_bg
+# client.placeholder      $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg $wm_color_border_inactive_bg
+# client.background       $wm_color_background
+
+## Catppuccin Colors ##
+# class                 border                       background                   text                         indicator                    child_border
+client.focused          $lavender                    $base                        $text                        $rosewater                   $lavender
+client.focused_inactive $overlay0                    $base                        $text                        $rosewater                   $overlay0
+client.unfocused        $overlay0                    $base                        $text                        $rosewater                   $overlay0
+client.urgent           $peach                       $base                        $peach                       $overlay0                    $peach
+client.placeholder      $overlay0                    $base                        $text                        $overlay0                    $overlay0
+
+
+### Start with i3
+
+# WALLPAPER
+exec --no-startup-id feh --bg-fill $HOME/Pictures/graymountain_digital-art.jpg
+
+# POLYBAR
+exec --no-startup-id $HOME/.config/polybar/i3_bar.sh
+
+# DUNST
+exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+
+
+### Miscellaneous settings ###
+# Set the font used for titlebars (which are hidden here)
+font $wm_setting_font
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+## Shortcuts
+
+# Enter fullscreen mode for the focused window
+bindsym $mod+f fullscreen toggle
+
+# Toggle between tiling and floating
+bindsym $mod+$smod+f floating toggle
+
+# Toggle border
+bindsym $mod+b border toggle
+
+# Kill the focused window
+bindsym $mod+$smod+q kill
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+$smod+r restart
+
+# Reload config file
+bindsym $mod+$smod+c reload
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Powermenu
+bindsym $mod+F4 exec $HOME/.config/rofi/powermenu/type-1/powermenu.sh
+
+# Shutdown
+bindsym $mod+$smod+F4 exec shutdown now
+
+# Cycle through workspaces
+bindsym $alt+Tab workspace next
+bindsym $alt+$smod+Tab workspace prev
+
+# Clipmark
+bindsym $mod+i exec --no-startup-id $scripts_dir/AddToClipmark.sh
+bindsym $mod+Insert exec --no-startup-id $scripts_dir/CheckClipmark.sh
+
+# Close dunst notification
+bindsym $mod+minus exec --no-startup-id dunstctl close
+bindsym $mod+$smod+minus exec --no-startup-id dunstctl close-all
+
+# Take a Screenshot
+bindsym Print exec $scripts_dir/screenshot.sh
+bindsym $smod+Print exec $scripts_dir/screenshot.sh shift
+bindsym $mod+Print exec $scripts_dir/screenshot.sh mod
+
+# Open one of the texts
+bindsym $mod+space exec $scripts_dir/TextsOpener.sh
+
+# Emoji Selector
+bindsym $mod+semicolon exec $scripts_dir/EmojiPicker.sh

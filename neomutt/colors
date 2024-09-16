@@ -1,0 +1,67 @@
+# vim: filetype=muttrc
+
+# Header colors:
+color header blue default ".*"                        # All headers in BLUE
+color header brightmagenta default "^(From)"          # 'From' header in BRIGHT MAGENTA
+color header brightcyan default "^(Subject)"          # 'Subject' header in BRIGHT CYAN
+color header brightwhite default "^(CC|BCC)"          # 'CC' and 'BCC' headers in BRIGHT WHITE
+
+# Monochrome styles:
+mono bold bold                                       # BOLD style for bold text
+mono underline underline                             # UNDERLINE style for underlined text
+mono indicator reverse                               # REVERSE style for indicators
+mono error bold                                      # BOLD style for errors
+
+# Normal colors:
+color normal default default                         # Default color for normal text
+color indicator brightmagenta default                 # BRIGHT YELLOW for the currently selected message
+color sidebar_highlight red default                  # RED for highlighted sidebar items
+color sidebar_divider brightblack black              # BRIGHT BLACK on BLACK for sidebar dividers
+color sidebar_flagged red black                      # RED on BLACK for flagged sidebar items
+color sidebar_new green black                        # GREEN on BLACK for new sidebar items
+color normal brightyellow default                    # BRIGHT YELLOW for normal text
+color error red default                              # RED for errors
+color tilde black default                            # BLACK for tilde lines
+color message cyan default                           # CYAN for message text
+color markers red white                              # RED on WHITE for markers
+color attachment white default                       # WHITE for attachments
+color search brightmagenta default                   # BRIGHT MAGENTA for search results
+color status brightyellow black                      # BRIGHT YELLOW on BLACK for status bar
+color hdrdefault brightgreen default                 # BRIGHT GREEN for default headers
+color quoted green default                           # GREEN for quoted text level 1
+color quoted1 blue default                           # BLUE for quoted text level 2
+color quoted2 cyan default                           # CYAN for quoted text level 3
+color quoted3 yellow default                         # YELLOW for quoted text level 4
+color quoted4 red default                            # RED for quoted text level 5
+color quoted5 brightred default                      # BRIGHT RED for quoted text level 6
+color signature brightgreen default                  # BRIGHT GREEN for signatures
+color bold black default                             # BLACK for bold text
+color underline black default                        # BLACK for underlined text
+color normal default default                         # Default color for normal text (repeated)
+
+# Body colors:
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"  # BRIGHT RED for email addresses
+color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"  # BRIGHT BLUE for URLs
+color body green default "\`[^\`]*\`"                                 # GREEN for text between backticks
+color body brightblue default "^# \.*"                                # BRIGHT BLUE for headings
+color body brightcyan default "^## \.*"                               # BRIGHT CYAN for subheadings
+color body brightgreen default "^### \.*"                             # BRIGHT GREEN for subsubheadings
+color body yellow default "^(\t| )*(-|\\*) \.*"                       # YELLOW for list items
+color body brightcyan default "[;:][-o][)/(|]"                        # BRIGHT CYAN for emoticons
+color body brightcyan default "[;:][)(|]"                             # BRIGHT CYAN for emoticons
+color body brightcyan default "[ ][*][^*]*[*][ ]?"                    # BRIGHT CYAN for bolded emoticons
+color body brightcyan default "[ ]?[*][^*]*[*][ ]"                    # BRIGHT CYAN for bolded emoticons
+
+# Default index colors:
+color index yellow default '.*'                                       # YELLOW for index
+color index_author red default '.*'                                   # RED for index author
+color index_number blue default                                       # BLUE for index number
+color index_subject cyan default '.*'                                 # CYAN for index subject
+
+# For new mail:
+color index brightyellow black "~N"                                   # BRIGHT YELLOW on BLACK for new mail
+color index_author red black "~N"                                     # RED on BLACK for new mail author
+color index_subject brightcyan black "~N"                             # BRIGHT CYAN on BLACK for new mail subject
+
+# Progress bar colors:
+color progress black cyan                                             # BLACK on CYAN for progress bar

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>x-package-repository</icon>
+	<name>Create Archive</name>
+	<submenu>7z</submenu>
+	<unique-id>1713199684441771-1</unique-id>
+	<command>7z a %n.7z %F</command>
+	<description>Creates an archive(7z)</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>x-package-repository</icon>
+	<name>Extract Archive</name>
+	<submenu>7z</submenu>
+	<unique-id>1713200161103120-1</unique-id>
+	<command>7z e %F</command>
+	<description>Extractes Archive(s)</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>x-package-repository</icon>
+	<name>Create an archive(zip)</name>
+	<submenu>7z</submenu>
+	<unique-id>1713200211910803-2</unique-id>
+	<command>7z a %n.zip %F -tzip</command>
+	<description>Creates an archive in zip format</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>x-package-repository</icon>
+	<name>Extract to</name>
+	<submenu>7z</submenu>
+	<unique-id>1713248857898801-1</unique-id>
+	<command>bash -c &apos;mkdir -p &quot;$(basename &quot;$0&quot; | sed &quot;s/\.[^.]*$//&quot;)&quot; &amp;&amp; 7z x &quot;$0&quot; -o&quot;$(basename &quot;$0&quot; | sed &quot;s/\.[^.]*$//&quot;)&quot;&apos; %f</command>
+	<description>Extracts the archive to its own folder</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+</actions>

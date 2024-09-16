@@ -1,0 +1,5 @@
+### GITIGNORE ###
+
+neomutt/accounts/professional
+neomutt/accounts/personal
+neomutt/accounts/university

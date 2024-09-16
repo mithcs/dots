@@ -1,0 +1,189 @@
+;==========================================================
+[module/rofi]
+type=custom/text
+content="󰣇"
+content-padding= 1
+; content-foreground=${gruvbox.blue}
+content-foreground=${catppuccin.blue}
+
+;==========================================================
+[module/ss]
+type=custom/text
+content=" "
+content-foreground=${catppuccin.crust}
+
+;==========================================================
+[module/i3]
+type = internal/i3
+enable-scroll = false
+show-urgent = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+fuzzy-match = true
+
+ws-icon-0 = 1;󰎤
+ws-icon-1 = 2;󰎧
+ws-icon-2 = 3;󰎪
+ws-icon-3 = 4;󰎭
+ws-icon-4 = 5;󰎱
+ws-icon-5 = 6;󰎳
+ws-icon-6 = 7;󰎶
+ws-icon-7 = 8;󰎹
+
+format = <label-state> <label-mode>
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = ${catppuccin.red} 
+label-mode-foreground = ${catppuccin.text}
+
+label-focused = %icon%
+label-focused-font = 5
+label-focused-foreground = ${catppuccin.peach}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-font = 5
+label-unfocused-foreground = ${catppuccin.yellow}
+label-unfocused-padding = 1
+
+label-visible = %icon%
+label-visible-padding = 1
+
+label-urgent = %icon%
+label-urgent-font = 5
+label-urgent-foreground = ${catppuccin.maroon}
+label-urgent-padding = 1
+
+label-separator = " "
+label-separator-padding = 1
+label-separator-foreground = ${catppuccin.transparent}
+
+;==========================================================
+[module/xwindow]
+type = internal/xwindow
+format-prefix="[  ]"
+format-margin=2
+format-prefix-foreground=${catppuccin.red}
+
+label = %title%
+label-maxlen = 60
+label-foreground = ${catppuccin.yellow}
+label-padding-left=4
+label-padding-right=4
+
+;==========================================================
+[module/time]
+type = internal/date
+interval = 1
+format-prefix = "[    ]"
+format-prefix-foreground=${catppuccin.sapphire}
+
+date = %a  %d %b  %H:%M:%S 
+label =%date% 
+label-foreground = ${catppuccin.sapphire}
+label-padding-left=2
+label-padding-right=2
+
+;==========================================================
+[module/filesystem]
+type = internal/fs
+interval = 2
+mount-0 = /
+format-mounted-prefix = "[    ]"
+format-mounted-prefix-foreground = ${catppuccin.red}
+
+label-mounted = %free%
+label-unmounted =  %mountpoint% not mounted
+label-mounted-foreground = ${catppuccin.red}
+label-mounted-padding-left=2
+label-mounted-padding-right=2
+
+;==========================================================
+[module/memory]
+type = internal/memory
+interval = 1 
+format-prefix = "[    ]"
+format-prefix-foreground = ${catppuccin.blue}
+
+label = %mb_used%
+label-foreground = ${gruvbox.blue}
+label-padding-left=2
+label-padding-right=2
+
+;==========================================================
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume-prefix = "[    ]"
+format-volume-prefix-foreground = ${catppuccin.sky}
+format-volume = <label-volume>
+
+label-volume = %percentage%%
+label-volume-foreground= ${catppuccin.sky}
+label-volume-padding-left=2
+label-volume-padding-right=2
+
+label-muted = "[  ]  muted"
+label-muted-foreground = ${catppuccin.red}
+label-muted-padding=2
+
+;==========================================================
+[module/tray]
+type=internal/tray
+format = <tray>
+tray-spacing= 8px
+format-padding=5px
+format-background=${catppuccin.mantle}
+tray-background = ${catppuccin.mantle}
+
+;==========================================================
+[module/wlan]
+type = internal/network
+interface = wlp0s26u1u4
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>  
+; format-connected-underline = ${colors.five}
+; format-connected-prefix = " "
+; format-connected-prefix-foreground = ${colors.five}
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected = %essid%
+label-connected-foreground = ${catppuccin.flamingo}
+label-connected-maxlen = 9
+
+format-disconnected =  <label-disconnected> 
+format-disconnected-underline = ${catppuccin.flamingo}
+format-disconnected-prefix = "[  ] "
+format-disconnected-prefix-foreground = ${catppuccin.flamingo}
+label-disconnected = %ifname%
+
+ramp-signal-0 = [  󰤯  ]
+ramp-signal-1 = [  󰤟  ]
+ramp-signal-2 = [  󰤢  ]
+ramp-signal-3 = [  󰤥  ]
+ramp-signal-4 = [  󰤨  ]
+ramp-signal-foreground = ${catppucin.flamingo}
+
+;==========================================================
+[module/nm-launcher]
+type = custom/text
+content = [  󱘖  ]
+content-foreground = ${catppuccin.base}
+click-left = /home/veloXm/zzz/rofi-network-manager/rofi-network-manager.sh
+
+;==========================================================
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+
