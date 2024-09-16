@@ -27,6 +27,7 @@ set $wm_color_border_inactive_fg     #D8DEE9
 set $wm_color_background             #2E3440
 
 set $scripts_dir                     $HOME/zzz
+set $wallpaper                       $HOME/Pictures/calm_wall.jpg
 
 # Catppuccin Colors
 set $rosewater #f5e0dc
@@ -211,7 +212,7 @@ client.placeholder      $overlay0                    $base                      
 ### Start with i3
 
 # WALLPAPER
-exec --no-startup-id feh --bg-fill $HOME/Pictures/graymountain_digital-art.jpg
+exec --no-startup-id feh --bg-fill $wallpaper
 
 # POLYBAR
 exec --no-startup-id $HOME/.config/polybar/i3_bar.sh
