@@ -280,3 +280,6 @@ bindsym $mod+space exec $scripts_dir/TextsOpener.sh
 
 # Emoji Selector
 bindsym $mod+semicolon exec $scripts_dir/EmojiPicker.sh
+
+# Zoom using boomer
+bindsym $mod+period exec --no-startup-id boomer

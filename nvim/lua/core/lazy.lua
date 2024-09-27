@@ -23,16 +23,6 @@ lazy.setup({
         -- Catppuccin
         { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-        -- -- Nvim-tree
-        -- {
-        --     "nvim-tree/nvim-tree.lua",
-        --     version = "*",
-        --     lazy = false,
-        --     dependencies = {
-        --         "nvim-tree/nvim-web-devicons",
-        --     }
-        -- },
-
         -- neo-tree
         {
             "nvim-neo-tree/neo-tree.nvim",
@@ -133,6 +123,11 @@ lazy.setup({
                 require("telescope").setup(opts)
                 require("telescope").load_extension("undo")
             end,
+        },
+
+        -- Supermaven
+        {
+            "supermaven-inc/supermaven-nvim",
         },
 
         -- LSP-zero

@@ -84,6 +84,9 @@ map('n', '<leader>R', ':cd %:h<CR>')
 
 -- PLUGINS KEYMAPS
 
+-- Toggle supermaven
+map('n' , '<leader>sm', ':SupermavenToggle<CR>')
+
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
