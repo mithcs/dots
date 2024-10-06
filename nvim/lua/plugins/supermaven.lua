@@ -18,3 +18,6 @@ require("supermaven-nvim").setup({
     return false
   end -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
 })
+
+-- Toggle supermaven
+vim.api.nvim_set_keymap('n', '<leader>sm', ':SupermavenToggle<CR>', { noremap = true, silent = true })

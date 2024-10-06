@@ -82,32 +82,6 @@ map('n', '<leader>go', ':!go build %<CR>')
 map('n', '<leader>R', ':cd %:h<CR>')
 
 
--- PLUGINS KEYMAPS
-
--- Toggle supermaven
-map('n' , '<leader>sm', ':SupermavenToggle<CR>')
-
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
+-- I don't have neoclip.lua, so I have to keep it here
 -- Neo-clip
 map('n', '<leader>y', ':Telescope neoclip<CR>')
-
--- Toggle Term
-map('n', '<space><space>', ':ToggleTerm<CR>')
-map('n', '<space>v', ':ToggleTerm direction=vertical size=75<CR>')
-
--- map('t', '<esc>', [[<C-\><C-n>]], opts)
-map('t', 'jk', [[<C-\><C-n>]])
--- map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
--- map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
--- map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
--- map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-
-
--- Neo-tree
-vim.api.nvim_set_keymap("n", "<C-e>", ":Neotree toggle<CR>", { noremap = true, silent = true })

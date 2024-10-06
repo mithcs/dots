@@ -26,7 +26,6 @@ export VISUAL="nvim"
 ## Alias
 alias \
     mpy='source $HOME/MyEnv/bin/activate' \
-    adb='$HOME/Downloads/android-tools/platform-tools/adb' \
     gtk='cat $HOME/projects/token.txt | xclip -selection clipboard' \
     mntsda4='sudo mount.ntfs-3g /dev/sda4 /mnt/' \
     xo='xdg-open' \

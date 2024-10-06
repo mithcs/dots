@@ -1,16 +1,15 @@
 -- init.lua
 ---------------------------------------------
 
--- Lazy.nvim plugin manager
-require('core.lazy')
+-- Global options
+require('core.options')
 
 -- Keymaps
 require('core.keymaps')
 
--- Global options
-require('core.options')
+-- Lazy.nvim plugin manager
+require('core.lazy')
 
--- Plugins
 require('plugins.autopairs')
 require('plugins.telescope')
 require('plugins.catppuccin')

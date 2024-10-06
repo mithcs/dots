@@ -38,6 +38,32 @@ end
 lspconfig.qml6_lsp.setup{}
 -- -----------------------
 
+-- rust setup (safe to delete this part, it'd still work fine)
+require('lspconfig').rust_analyzer.setup({
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    root_dir = function(fname)
+        local cargo_crate_dir = lspconfig.util.root_pattern 'Cargo.toml'(fname)
+        local cmd = 'cargo metadata --no-deps --format-version 1'
+        if cargo_crate_dir ~= nil then
+            cmd = cmd .. ' --manifest-path ' .. lspconfig.util.path.join(cargo_crate_dir, 'Cargo.toml')
+        end
+        local cargo_metadata = vim.fn.system(cmd)
+        local cargo_workspace_dir = nil
+        if vim.v.shell_error == 0 then
+            cargo_workspace_dir = vim.fn.json_decode(cargo_metadata)['workspace_root']
+        end
+        return cargo_workspace_dir
+        or cargo_crate_dir
+        or lspconfig.util.root_pattern 'rust-project.json'(fname)
+        or lspconfig.util.find_git_ancestor(fname)
+    end,
+    settings = {
+        ["rust-analyzer"] = {}
+    }
+})
+-- -----------------------
+
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
