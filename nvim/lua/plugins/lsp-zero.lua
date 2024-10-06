@@ -120,8 +120,8 @@ cmp.setup({
 				},
 
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
 
@@ -129,25 +129,25 @@ cmp.setup({
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
-        -- Tab mapping
-        -- ['<Tab>'] = function(fallback)
-        --     if cmp.visible() then
-        --         cmp.select_next_item()
-        --     elseif luasnip.expand_or_jumpable() then
-        --         luasnip.expand_or_jump()
-        --     else
-        --         fallback()
-        --     end
-        -- end,
-        -- ['<C-pb>'] = function(fallback)
-        --     if cmp.visible() then
-        --         cmp.select_prev_item()
-        --     elseif luasnip.jumpable(-1) then
-        --         luasnip.jump(-1)
-        --     else
-        --         fallback()
-        --     end
-        -- end
+        -- Better mapping
+        ['<C-n>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end,
+        ['<C-p>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end
     }),
 
     -- ICONS
