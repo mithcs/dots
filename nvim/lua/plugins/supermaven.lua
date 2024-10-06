@@ -8,7 +8,7 @@ require("supermaven-nvim").setup({
       txt = true
   },
   color = {
-    suggestion_color = "#ffffff",
+    suggestion_color = "#ffcccc",
     cterm = 244,
   },
   log_level = "info", -- set to "off" to disable logging completely
