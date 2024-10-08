@@ -81,7 +81,7 @@ local altkey       = "Mod1"
 -- Variables to be used later
 -- These are the base
 shell = "bash -c"
-scripts_dir = " $HOME/zzz"
+scripts_dir = " $HOME/zzz/"
 
 -- Programs
 terminal = "st"
@@ -92,15 +92,18 @@ editor = "nvim"
 zoomer = "zoomer"
 
 -- Utils
-add_clipmark = shell .. scripts_dir .. "/AddToClipmark.sh"
-show_clipmark = shell .. scripts_dir .. "/CheckClipmark.sh"
-cheatsheet = shell .. scripts_dir .. "/Cheatsheet.sh"
-emoji_picker = shell .. scripts_dir .. "/EmojiPicker.sh"
-texts_opener = shell .. scripts_dir .. "/TextsOpener.sh"
-set_time = shell .. scripts_dir .. "/SetTime.sh"
+add_clipmark = shell .. scripts_dir .. "AddToClipmark.sh"
+show_clipmark = shell .. scripts_dir .. "CheckClipmark.sh"
+cheatsheet = shell .. scripts_dir .. "Cheatsheet.sh"
+emoji_picker = shell .. scripts_dir .. "EmojiPicker.sh"
+texts_opener = shell .. scripts_dir .. "TextsOpener.sh"
+set_time = shell .. scripts_dir .. "SetTime.sh"
 shutdown = "shutdown now"
 
-screenshot = shell .. scripts_dir .. "/screenshot.sh"
+screenshot_full = shell .. scripts_dir .. "FullScreenshot.sh"
+screenshot_partial = shell .. scripts_dir .. "PartialScreenshot.sh"
+screenshot_clipboard = shell .. scripts_dir .. "ScreenshotToClipboard.sh"
+
 
 -- Args as variables
 rofi_launcher = shell .. " $HOME/.config/rofi/launchers/type-1/launcher.sh"
@@ -276,12 +279,14 @@ globalkeys = mytable.join(
         end,
         {description = "toggle mute", group = "volumne"}),
 
-    -- TODO: Add dunst notification bindings
     -- TODO: Add network manager bindindgs
 
-    -- screenshot bindings (TODO: add clipboard, and selection ss)
-    awful.key({ }, "Print", function () awful.spawn(screenshot) end,
-              {description = "take screenshot of whole screen", group = "utils"}),
+    awful.key({ }, "Print", function () awful.spawn(screenshot_full) end,
+              {description = "take screenshot of whole screen", group = "screenshot"}),
+    awful.key({ modkey }, "Print", function () awful.spawn(screenshot_partial) end,
+              {description = "take screenshot of partial screen", group = "screenshot"}),
+    awful.key({ smodkey }, "Print", function () awful.spawn(screenshot_clipboard) end,
+              {description = "take screenshot of whole screen and add to clipboard", group = "screenshot"}),
 
     -- Awesome bindings
     awful.key({ modkey, "Control" }, "r", awesome.restart,
