@@ -10,7 +10,7 @@ scripts_dir = " $HOME/zzz"
 -- Programs
 terminal = "st"
 browser = "google-chrome-stable"
-file_explorer = "file_explorer"
+file_explorer = "thunar"
 megasync = "megasync"
 editor = "nvim"
 zoomer = "zoomer"
