@@ -42,6 +42,11 @@ globalkeys = gears.table.join(
               {description = "open emoji picker", group = "utils"}),
     awful.key({ modkey }, "space", function () awful.spawn(texts_opener) end,
               {description = "open one of the texts", group = "utils"}),
+    awful.key({ modkey }, "t", function () awful.spawn(set_time) end,
+              {description = "set date and time", group = "utils"}),
+
+    -- TODO: Add dunst notification bindings
+    -- TODO: Add network manager bindindgs
 
     -- screenshot bindings (TODO: add clipboard, and selection ss)
     awful.key({ }, "Print", function () awful.spawn(screenshot) end,

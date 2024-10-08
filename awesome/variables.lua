@@ -26,11 +26,10 @@ show_clipmark = shell .. scripts_dir .. "/CheckClipmark.sh"
 cheatsheet = shell .. scripts_dir .. "/Cheatsheet.sh"
 emoji_picker = shell .. scripts_dir .. "/EmojiPicker.sh"
 texts_opener = shell .. scripts_dir .. "/TextsOpener.sh"
+set_time = shell .. scripts_dir .. "/SetTime.sh"
 shutdown = "shutdown now"
 
 screenshot = shell .. scripts_dir .. "/screenshot.sh"
-screenshot_clipboard = shell .. "'" .. scripts_dir .. "/screenshot.sh shift" .. "'"
-screenshot_selecter = shell .. "'" .. scripts_dir .. "/screenshot.sh mod" .. "'"
 
 -- Args as variables
 rofi_launcher = shell .. " $HOME/.config/rofi/launchers/type-1/launcher.sh"
