@@ -19,4 +19,4 @@ else
 fi
 
 # Execute cht.sh using bash and pipe it to less
-st bash -c "cht.sh $prompt | less -R -N"
+st bash -c "cht.sh $prompt | less -R"
