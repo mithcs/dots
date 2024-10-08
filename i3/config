@@ -1,13 +1,13 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-### Variables for settings (This makes changing them WAY easyer!) ###
+### Variables for settings (This makes changing them WAY easier!) ###
 set $mod                             Mod4
 set $smod                            Shift
 set $alt                             Mod1
 set $wm_setting_font                 pango:JetBrainsMono Nerd Font, Semibold 11
 set $wm_setting_gap_width            5
 set $wm_setting_gap_heigth           5
-set $wm_setting_border_size          2
+set $wm_setting_border_size          1
 set $wm_setting_key_left             h
 set $wm_setting_key_down             j
 set $wm_setting_key_up               k
@@ -181,8 +181,8 @@ bindsym $mod+$smod+t layout toggle split
 ### Gaps ###
 gaps horizontal $wm_setting_gap_width
 gaps vertical   $wm_setting_gap_heigth
-gaps inner 5
-gaps outer 2
+gaps inner 1
+gaps outer 0
 smart_gaps off
 
 ### Borders ###
