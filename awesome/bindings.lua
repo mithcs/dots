@@ -13,8 +13,51 @@ root.buttons(gears.table.join(
 
 -- Key bindings
 globalkeys = gears.table.join(
+    -- Standard program
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,  "Shift"  }, "Return", function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey }, "p", function () awful.spawn(rofi_launcher) end,
+              {description = "open rofi launcher", group = "launcher"}),
+    awful.key({ modkey }, "e", function () awful.spawn(thunar) end,
+              {description = "open thunar", group = "launcher"}),
+    awful.key({ modkey }, "q", function () awful.spawn(terminal .. btop, false) end,
+              {description = "open btop", group = "launcher"}),
+    awful.key({ modkey }, "n", function () awful.spawn(terminal .. neomutt) end,
+              {description = "open neomutt", group = "launcher"}),
+    awful.key({ modkey }, "m", function () awful.spawn(megasync, false) end,
+              {description = "open megasync", group = "launcher"}),
+    awful.key({ modkey }, "period", function () awful.spawn(boomer, false) end,
+              {description = "open boomer", group = "launcher"}),
+
+    -- Utils bindings
+    awful.key({ modkey }, "i", function () awful.spawn(add_clipmark) end,
+              {description = "add selected text to clipmark", group = "utils"}),
+    awful.key({ modkey }, "Insert", function () awful.spawn(show_clipmark) end,
+              {description = "show clipmark", group = "utils"}),
+    awful.key({ modkey }, "bracketright", function () awful.spawn(cheatsheet) end,
+              {description = "open cheatsheet", group = "utils"}),
+    awful.key({ modkey }, "semicolon", function () awful.spawn(emoji_picker) end,
+              {description = "open emoji picker", group = "utils"}),
+    awful.key({ modkey }, "space", function () awful.spawn(texts_opener) end,
+              {description = "open one of the texts", group = "utils"}),
+
+    -- screenshot bindings (TODO: add clipboard, and selection ss)
+    awful.key({ }, "Print", function () awful.spawn(screenshot) end,
+              {description = "take screenshot of whole screen", group = "utils"}),
+
+    -- Awesome bindings
+    awful.key({ modkey, "Control" }, "r", awesome.restart,
+              {description = "reload awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "e", awesome.quit,
+              {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+              {description = "show main menu", group = "awesome"}),
+
+    -- Tag related bindings
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -22,6 +65,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    -- client related bindings
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -34,8 +78,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -57,24 +99,13 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,  "Shift"  }, "Return", function () awful.spawn(browser) end,
-              {description = "open a browser", group = "launcher"}),
-    awful.key({ modkey }, "p", function () awful.spawn(rofi_launcher) end,
-              {description = "open rofi launcher", group = "launcher"}),
+    -- System related bindings
     awful.key({ modkey }, "F4", function () awful.spawn(rofi_powermenu) end,
-              {description = "open rofi powermenu", group = "launcher"}),
-    awful.key({ modkey }, "e", function () awful.spawn(thunar) end,
-              {description = "open thunar", group = "launcher"}),
-    awful.key({ modkey }, "q", function () awful.spawn(terminal .. btop) end,
-              {description = "open btop", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "e", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+              {description = "open rofi powermenu", group = "utils"}),
+    awful.key({ modkey, "Shift" }, "F4", function () awful.spawn(shutdown) end,
+              {description = "open rofi powermenu", group = "utils"}),
 
+    -- More layout bindings
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
@@ -118,9 +149,6 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"})
-    -- -- Menubar
-    -- awful.key({ modkey }, "p", function() menubar.show() end,
-    --           {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(

@@ -14,10 +14,18 @@ require("menu")
 local awful = require("awful")
 require("awful.autofocus")
 
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
-
-
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- Autorun programs
+local autorun = true
+
+autorunApps = {
+    "dunst -config $HOME/.config/dunst/dunstrc"
+}
+
+if autorun then
+    for app = 1, #autorunApps do
+        awful.spawn(autorunApps[app])
+    end
+end

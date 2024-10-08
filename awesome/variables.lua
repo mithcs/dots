@@ -8,13 +8,37 @@ local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- Variables to be used later
+-- These are the base
+shell = "bash -c"
+scripts_dir = " $HOME/zzz"
+
+-- Programs
 terminal = "st"
-btop = " btop"      -- Extra space as it will be provided as argument
 browser = "yandex-browser-stable"
 thunar = "thunar"
-rofi_launcher = "sh -c $HOME/.config/rofi/launchers/type-1/launcher.sh"
-rofi_powermenu = "sh -c $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
-editor = os.getenv("EDITOR") or "nano"
+megasync = "megasync"
+editor = "nvim"
+boomer = "boomer"
+
+-- Utils
+add_clipmark = shell .. scripts_dir .. "/AddToClipmark.sh"
+show_clipmark = shell .. scripts_dir .. "/CheckClipmark.sh"
+cheatsheet = shell .. scripts_dir .. "/Cheatsheet.sh"
+emoji_picker = shell .. scripts_dir .. "/EmojiPicker.sh"
+texts_opener = shell .. scripts_dir .. "/TextsOpener.sh"
+shutdown = "shutdown now"
+
+screenshot = shell .. scripts_dir .. "/screenshot.sh"
+screenshot_clipboard = shell .. "'" .. scripts_dir .. "/screenshot.sh shift" .. "'"
+screenshot_selecter = shell .. "'" .. scripts_dir .. "/screenshot.sh mod" .. "'"
+
+-- Args as variables
+rofi_launcher = shell .. " $HOME/.config/rofi/launchers/type-1/launcher.sh"
+rofi_powermenu = shell .. " $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
+btop = " btop"
+neomutt = " neomutt"
+
+-- Others
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -26,6 +50,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+    awful.layout.suit.spiral,
     awful.layout.suit.tile,
     awful.layout.suit.floating,
     awful.layout.suit.tile.left,
@@ -33,7 +58,6 @@ awful.layout.layouts = {
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
