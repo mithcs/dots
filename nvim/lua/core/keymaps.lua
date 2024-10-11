@@ -12,6 +12,39 @@ map('n', '.', '<Nop>')
 -- Change leader to '.'
 vim.g.mapleader = '.'
 
+-- Function to set up buffer mappings in the order they were opened
+function Setup_buffer_mappings()
+  -- Get the list of buffers
+  local buffers = vim.fn.getbufinfo({ buflisted = 1 })  -- Get only listed buffers
+  -- Create a table to hold buffer numbers in the order they were opened
+  local buffer_table = {}
+
+  -- Populate the table with buffer numbers
+  for _, buf in ipairs(buffers) do
+    table.insert(buffer_table, buf.bufnr)  -- Only store buffer numbers
+  end
+
+  -- Create mappings for buffers up to 9 (adjust as needed)
+  for i = 1, #buffer_table do
+    if i <= 9 then  -- Limiting to 9 for simplicity, change if necessary
+      local buf_number = buffer_table[i]
+      map('n', '<leader>' .. i, ':b ' .. buf_number .. '<CR>')
+    end
+  end
+end
+
+-- Call the function to set up buffer mappings
+Setup_buffer_mappings()
+
+vim.cmd([[
+  augroup BufferMappings
+    autocmd!
+    autocmd BufAdd,BufDelete * lua Setup_buffer_mappings()
+  augroup END
+]])
+
+-- --------------------- --------------------- ---------------------
+
 -- Neovim Shortcuts
 
 -- Remove annoyance
@@ -21,11 +54,8 @@ map('i', '<C-.>', '<Nop>')
 -- Append easily
 map('n', '<leader>a', 'A')
 
--- Switch to next buffer
 map('n', '<Space>n', ':bn<CR>')
--- Switch to previous buffer
 map('n', '<Space>p', ':bp<CR>')
--- Delete buffer
 map('n', '<Space>d', ':bd<CR>')
 
 -- Create Split
