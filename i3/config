@@ -266,6 +266,9 @@ bindsym $alt+$smod+Tab workspace prev
 bindsym $mod+i exec --no-startup-id $scripts_dir/AddToClipmark.sh
 bindsym $mod+Insert exec --no-startup-id $scripts_dir/CheckClipmark.sh
 
+# Set Date and Time
+bindsym $mod+t exec --no-startup-id $scripts_dir/SetTime.sh
+
 # Close dunst notification
 bindsym $mod+minus exec --no-startup-id dunstctl close
 bindsym $mod+$smod+minus exec --no-startup-id dunstctl close-all
