@@ -27,7 +27,6 @@ SECONDS=$(echo "$OUTPUT" | jq '.seconds')
 
 DATETIME=$(printf "%04d-%02d-%02d %02d:%02d:%02d\n" "$YEAR" "$MONTH" "$DAY" "$HOUR" "$MINUTE" "$SECONDS")
 
-# Set the date and time
 PASS=$(get_password)
 
 if [[ -z "$PASS" ]]; then
@@ -35,6 +34,7 @@ if [[ -z "$PASS" ]]; then
     exit 1
 fi
 
+# Set the date and time
 echo "$PASS" | sudo -S timedatectl set-time "$DATETIME"
 
 if [[ $? -eq 0 ]]; then
