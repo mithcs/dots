@@ -81,9 +81,6 @@ bindsym $mod+n exec --no-startup-id $wm_setting_app_terminal -e neomutt
 # Start MEGAsync
 bindsym $mod+m exec --no-startup-id megasync
 
-# Start RofiFinder
-bindsym $mod+o exec $scripts_dir/RofiFinder.sh --launch
-
 # Start btop
 bindsym $mod+q exec --no-startup-id $wm_setting_app_terminal btop
 

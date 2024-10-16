@@ -51,3 +51,47 @@ alias baobab='GSK_RENDERER=cairo baobab'
 alias qml='/usr/lib/qt6/bin/qml'
 alias cpc='xclip -selection clipboard'
 alias pgres='sudo su - postgres'
+
+# FZF setup
+
+# Stuff to exlude
+EXCLUDE="{MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,/.git}"
+
+# Use fd for fuzzy file finding
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+
+# Enable fuzzy history search
+fzf-history-widget() {
+  local selected
+  selected=$(fc -l -n -r | fzf)
+  if [ -n "$selected" ]; then
+    READLINE_LINE="$selected"
+    READLINE_POINT=${#READLINE_LINE}
+  fi
+}
+
+# Function to search files using fd
+fzf-file-widget() {
+  local file
+  file=$(fd --type f --hidden --follow --exclude "$EXCLUDE" | fzf)
+  [ -n "$file" ] && nvim "$file"
+}
+
+# Function to change directory using fzf and fd
+fzf-cd() {
+  local dir
+  dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf --height 100% --preview 'tree -Cd {}' --preview-window=up:40%)
+  if [ -n "$dir" ]; then
+    cd "$dir" || return
+  fi
+}
+
+zle -N fzf-history-widget
+zle -N fzf-file-widget
+zle -N fzf-cd
+bindkey '^F' fzf-file-widget
+bindkey '^R' fzf-history-widget
+bindkey '^G' fzf-cd

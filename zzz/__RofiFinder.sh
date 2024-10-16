@@ -19,7 +19,7 @@ if [ "$1" == "--launch" ]; then
     exit
 fi
 
-EXCLUDE="{PyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.config/chromium,go/pkg/mod,/.git}"
+EXCLUDE="{MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.config/chromium,go/pkg/mod,/.git}"
 
 # Check if any arguments were passed to the script.
 if [ ! -z "$@" ]
