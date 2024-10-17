@@ -27,7 +27,7 @@ set $wm_color_border_inactive_fg     #D8DEE9
 set $wm_color_background             #2E3440
 
 set $scripts_dir                     $HOME/zzz
-set $wallpaper                       $HOME/Pictures/calm_wall.jpg
+set $wallpaper                       $HOME/Pictures/dev-minimal_wallpaper.png
 
 # Catppuccin Colors
 set $rosewater #f5e0dc

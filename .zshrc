@@ -65,33 +65,37 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
 # Enable fuzzy history search
 fzf-history-widget() {
-  local selected
-  selected=$(fc -l -n -r | fzf)
-  if [ -n "$selected" ]; then
-    READLINE_LINE="$selected"
-    READLINE_POINT=${#READLINE_LINE}
-  fi
+    local selected
+    selected=$(fc -l -n -r | fzf)
+    if [ -n "$selected" ]; then
+        READLINE_LINE="$selected"
+        READLINE_POINT=${#READLINE_LINE}
+    fi
 }
 
 # Function to search files using fd
 fzf-file-widget() {
-  local file
-  file=$(fd --type f --hidden --follow --exclude "$EXCLUDE" | fzf)
-  [ -n "$file" ] && nvim "$file"
+    local file
+    file=$(fd --type f --hidden --follow --exclude "$EXCLUDE" | fzf)
+    [ -n "$file" ] && nvim "$file"
 }
 
 # Function to change directory using fzf and fd
+# There is a issue somewhere so we have to press enter twice
 fzf-cd() {
-  local dir
-  dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf --height 100% --preview 'tree -Cd {}' --preview-window=up:40%)
-  if [ -n "$dir" ]; then
-    cd "$dir" || return
-  fi
+    local dir
+    dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf --height 100% --preview 'tree -Cd {}' --preview-window=up:40%)
+    if [ -n "$dir" ]; then
+        cd "$dir"
+    fi
 }
 
+# Set up widgets
 zle -N fzf-history-widget
 zle -N fzf-file-widget
 zle -N fzf-cd
+
+# Bind the widgets to keys
 bindkey '^F' fzf-file-widget
 bindkey '^R' fzf-history-widget
 bindkey '^G' fzf-cd
