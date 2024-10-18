@@ -7,33 +7,32 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- --------------------- --------------------- ---------------------
+
 -- Remove mapped '.'
 map('n', '.', '<Nop>')
 -- Change leader to '.'
 vim.g.mapleader = '.'
 
+-- --------------------- --------------------- ---------------------
+
 -- Function to set up buffer mappings in the order they were opened
 function Setup_buffer_mappings()
-  -- Get the list of buffers
-  local buffers = vim.fn.getbufinfo({ buflisted = 1 })  -- Get only listed buffers
-  -- Create a table to hold buffer numbers in the order they were opened
+  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
   local buffer_table = {}
 
-  -- Populate the table with buffer numbers
   for _, buf in ipairs(buffers) do
-    table.insert(buffer_table, buf.bufnr)  -- Only store buffer numbers
+    table.insert(buffer_table, buf.bufnr)
   end
 
-  -- Create mappings for buffers up to 9 (adjust as needed)
   for i = 1, #buffer_table do
-    if i <= 9 then  -- Limiting to 9 for simplicity, change if necessary
+    if i <= 9 then
       local buf_number = buffer_table[i]
       map('n', '<leader>' .. i, ':b ' .. buf_number .. '<CR>')
     end
   end
 end
 
--- Call the function to set up buffer mappings
 Setup_buffer_mappings()
 
 vim.cmd([[
@@ -111,7 +110,6 @@ map('n', '<leader>go', ':!go build %<CR>')
 -- Set parent directory as root
 map('n', '<leader>R', ':cd %:h<CR>')
 
-
--- I don't have neoclip.lua, so I have to keep it here
+-- didn't create neoclip.lua...
 -- Neo-clip
 map('n', '<leader>y', ':Telescope neoclip<CR>')
