@@ -21,7 +21,7 @@ require('plugins.alpha')
 require('plugins.colorizer')
 require('plugins.toggleterm')
 require('plugins.neo-tree')
-require('plugins.supermaven')
+-- require('plugins.supermaven')
 
 -- Color scheme
 vim.cmd.colorscheme "catppuccin"

@@ -126,9 +126,9 @@ lazy.setup({
         },
 
         -- Supermaven
-        {
-            "supermaven-inc/supermaven-nvim",
-        },
+        -- {
+        --     "supermaven-inc/supermaven-nvim",
+        -- },
 
         -- LSP-zero
 
