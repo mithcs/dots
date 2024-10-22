@@ -1,5 +1,3 @@
-# SkyyySi's Nordic i3 config file
-#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 ### Variables for settings (This makes changing them WAY easyer!) ###
@@ -280,6 +278,9 @@ bindsym $mod+space exec $scripts_dir/TextsOpener.sh
 
 # Emoji Selector
 bindsym $mod+semicolon exec $scripts_dir/EmojiPicker.sh
+
+# Cheatsheet
+bindsym $mod+bracketright exec $scripts_dir/Cheatsheet.sh
 
 # Zoom using boomer
 bindsym $mod+period exec --no-startup-id boomer
