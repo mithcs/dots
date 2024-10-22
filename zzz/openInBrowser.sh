@@ -1,14 +1,14 @@
 #!/bin/bash
 
-FILEPATH="$1"
+filepath="$1"
 
-HTMLPATH="$FILEPATH.html"
+htmlpath="$filepath.html"
 
-if $(cp "$FILEPATH" "$HTMLPATH"); then
+if $(cp "$filepath" "$htmlpath"); then
     dunstify "Opening mail in xlinks..."
-    xlinks -g "$HTMLPATH" &
+    xlinks -g "$htmlpath" &
 
-    sleep 2 && rm "$HTMLPATH"
+    sleep 2 && rm "$htmlpath"
     dunstify "Removed HTML file."
 else
     dunstify "An error has occurred."

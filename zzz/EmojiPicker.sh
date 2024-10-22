@@ -1,17 +1,17 @@
 #!/bin/sh
 
 # Select STYLE and THEME
-STYLE="style-10"
-THEME="type-7"
+style="style-10"
+theme="type-7"
 
 # Path of rasi file
-RASI="$HOME/.config/rofi/launchers/$THEME/$STYLE.rasi"
+rasi="$HOME/.config/rofi/launchers/$theme/$style.rasi"
 
 
 # GNU cut doesn't grok UTF-8.
-EMOJI=$(sed '1,/^exit/d' $0 | rofi -dmenu -theme "$RASI" -i -p "Emoji Picker" -l 10 | grep -Po '^[^ ]*')
-if [ "$EMOJI" ]; then
-	printf %s "$EMOJI" | xclip -i
+emoji=$(sed '1,/^exit/d' $0 | rofi -dmenu -theme "$rasi" -i -p "Emoji Picker" -l 10 | grep -Po '^[^ ]*')
+if [ "$emoji" ]; then
+	printf %s "$emoji" | xclip -i
 	sleep 0.1
 	xdotool click 2
 	exit $?

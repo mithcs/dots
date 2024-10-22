@@ -4,15 +4,15 @@
 # the retrieved date and time via `timedatectl`
 
 # Path of rasi file
-RASI="$HOME/.config/rofi/dracula.rasi"
+rasi="$HOME/.config/rofi/dracula.rasi"
 
 # Function to get password
 get_password() {
-    rofi -dmenu -theme "$RASI" -p "Enter your sudo password" -password
+    rofi -dmenu -theme "$rasi" -p "Enter your sudo password" -password -theme-str '#window {width: 400px;height: 50;}'
 }
 
 # Retrieve data from API
-OUTPUT=$(curl -s 'https://www.timeapi.io/api/time/current/zone?timeZone=Asia%2FKolkata')
+output=$(curl -s 'https://www.timeapi.io/api/time/current/zone?timeZone=Asia%2FKolkata')
 
 if [[ $? -ne 0 ]]; then
     dunstify "Failed to retrieve data from timeapi.io"
@@ -20,25 +20,25 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Correctly parse data
-YEAR=$(echo "$OUTPUT" | jq '.year')
-MONTH=$(echo "$OUTPUT" | jq '.month')
-DAY=$(echo "$OUTPUT" | jq '.day')
+year=$(echo "$output" | jq '.year')
+month=$(echo "$output" | jq '.month')
+day=$(echo "$output" | jq '.day')
 
-HOUR=$(echo "$OUTPUT" | jq '.hour')
-MINUTE=$(echo "$OUTPUT" | jq '.minute')
-SECONDS=$(echo "$OUTPUT" | jq '.seconds')
+hour=$(echo "$output" | jq '.hour')
+minute=$(echo "$output" | jq '.minute')
+seconds=$(echo "$output" | jq '.seconds')
 
-DATETIME=$(printf "%04d-%02d-%02d %02d:%02d:%02d\n" "$YEAR" "$MONTH" "$DAY" "$HOUR" "$MINUTE" "$SECONDS")
+datetime=$(printf "%04d-%02d-%02d %02d:%02d:%02d\n" "$year" "$month" "$day" "$hour" "$minute" "$seconds")
 
-PASS=$(get_password)
+pass=$(get_password)
 
-if [[ -z "$PASS" ]]; then
+if [[ -z "$pass" ]]; then
     dunstify "Password input was cancelled."
     exit 1
 fi
 
 # Set the date and time
-echo "$PASS" | sudo -S timedatectl set-time "$DATETIME"
+echo "$pass" | sudo -S timedatectl set-time "$datetime"
 
 if [[ $? -eq 0 ]]; then
     dunstify "Date and time updated successfully"

@@ -1,25 +1,25 @@
 #!/bin/bash
 
 # Texts directory
-BOOKS_DIR="$HOME/Reading"
+books_dir="$HOME/Reading"
 
 # Get list of files
-FILES="$(ls $BOOKS_DIR)"
+files="$(ls $books_dir)"
 
 # Select STYLE and THEME
-STYLE="style-7"
-THEME="type-7"
+style="style-7"
+theme="type-7"
 
 # Path of rasi file
-RASI="$HOME/.config/rofi/launchers/$THEME/$STYLE.rasi"
+rasi="$HOME/.config/rofi/launchers/$theme/$style.rasi"
 
 # Show the list of files in rofi
-SELECTED_FILE=$(echo "$FILES" | rofi -dmenu -theme "$RASI" -i -p "Select a file to open:")
+selected_file=$(echo "$files" | rofi -dmenu -theme "$rasi" -i -p "Select a file to open:")
 
 # If file was selected then open it otherwise print error
-if [[ -n "$SELECTED_FILE" ]]; then
-    dunstify "Opening $SELECTED_FILE..."
-    xdg-open "$BOOKS_DIR/$SELECTED_FILE"
+if [[ -n "$selected_file" ]]; then
+    dunstify "Opening $selected_file..."
+    xdg-open "$books_dir/$selected_file"
     
     # Check if opened with success
     if [[ $? != 0 ]]; then
