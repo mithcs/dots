@@ -3,9 +3,12 @@
 # This bash script retrieve the current date and time (from timeapi.io) and sets
 # the retrieved date and time via `timedatectl`
 
+# Path of rasi file
+RASI="$HOME/.config/rofi/dracula.rasi"
+
 # Function to get password
 get_password() {
-    rofi -dmenu -p "Enter your sudo password" -password
+    rofi -dmenu -theme "$RASI" -p "Enter your sudo password" -password
 }
 
 # Retrieve data from API
