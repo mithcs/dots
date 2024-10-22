@@ -139,6 +139,10 @@ bindsym $mod+$smod+$wm_setting_key_down          move down
 bindsym $mod+$smod+$wm_setting_key_up            move up
 bindsym $mod+$smod+$wm_setting_key_right         move right
 
+# Toggle focus between tiling / floating window
+
+bindsym $mod+$smod+space focus mode_toggle
+
 # Resize window (you can also use the mouse for that)
 mode "resize" {
 #	These bindings trigger as soon as you enter the resize mode
@@ -222,7 +226,6 @@ font $wm_setting_font
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 
 ## Shortcuts
 
