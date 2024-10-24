@@ -26,7 +26,6 @@ export VISUAL="nvim"
 ## Alias
 alias \
     mpy='source $HOME/MyEnv/bin/activate' \
-    gtk='cat $HOME/projects/token.txt | xclip -selection clipboard' \
     mntsda4='sudo mount.ntfs-3g /dev/sda4 /mnt/' \
     xo='xdg-open' \
     nn='$HOME/zzz/openNeovim.sh' \
@@ -49,7 +48,7 @@ alias \
 alias wireshark='sudo wireshark'
 alias baobab='GSK_RENDERER=cairo baobab'
 alias qml='/usr/lib/qt6/bin/qml'
-alias cpc='xclip -selection clipboard'
+alias cpc='xclip -selection primary'
 alias pgres='sudo su - postgres'
 
 # FZF setup
@@ -99,3 +98,8 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^R' fzf-history-widget
 bindkey '^G' fzf-cd
+
+# Others
+export ANDROID_HOME=/opt/android-sdk
+export FLUTTER=/opt/flutter/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$FLUTTER
