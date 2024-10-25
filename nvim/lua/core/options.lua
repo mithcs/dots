@@ -27,7 +27,7 @@ opt.linebreak = true        -- Wrap on word boundary
 opt.termguicolors = true    -- Enable 24-bit RGB colors
 opt.laststatus=3            -- Set global Status line
 opt.cursorline= true        -- Cursor line
-opt.scrolloff = 19          -- To keep the cursor in the center of the screen all the time
+opt.scrolloff = 25          -- To keep the cursor in the center of the screen all the time
 opt.signcolumn = "yes"
 
 -- Undo options
