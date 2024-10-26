@@ -83,7 +83,7 @@ fzf-file-widget() {
 # There is a issue somewhere so we have to press enter twice
 fzf-cd() {
     local dir
-    dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf --height 100% --preview 'tree -Cd {}' --preview-window=up:40%)
+    dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf)
     if [ -n "$dir" ]; then
         cd "$dir"
     fi
