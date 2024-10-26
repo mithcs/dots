@@ -6,11 +6,9 @@ if not status_ok then
 end
 
 nvim_treesitter.setup {
-    -- A list of parsers name, or "all"
     ensure_installed = {
-        'c', 'cpp', 'css', 'html', 'javascript', 'lua', 'python', 'go'
+        'c', 'cpp', 'css', 'html', 'typescript', 'lua', 'python', 'go', 'astro'
     },
-    -- Install parsers synchronously (only applied to 'ensure_installed')
     sync_install = false,
     highlight = {
         enable = true,

@@ -34,6 +34,9 @@ lazy.setup({
             }
         },
 
+        -- Treesitter
+        { "nvim-treesitter/nvim-treesitter" },
+
         -- Telescope
         {
             'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -86,7 +89,7 @@ lazy.setup({
         },
 
         -- Colorizer
-        { 'norcalli/nvim-colorizer.lua' },
+        { "norcalli/nvim-colorizer.lua" },
 
         -- LSP-kind
         { "onsails/lspkind.nvim" },
