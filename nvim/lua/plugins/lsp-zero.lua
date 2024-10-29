@@ -68,7 +68,7 @@ require('lspconfig').rust_analyzer.setup({
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pyright', 'clangd', 'gopls', 'rust_analyzer'},
+    ensure_installed = { 'pyright', 'clangd', 'gopls', 'rust_analyzer' },
     handlers = {
         -- Default setup for all servers, except custom ones
         lsp_zero.default_setup,
