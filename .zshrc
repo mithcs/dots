@@ -48,13 +48,13 @@ alias \
 alias wireshark='sudo wireshark'
 alias baobab='GSK_RENDERER=cairo baobab'
 alias qml='/usr/lib/qt6/bin/qml'
-alias cpc='xclip -selection primary'
+alias cpc='xclip -selection clipboard'
 alias pgres='sudo su - postgres'
 
 # FZF setup
 
 # Stuff to exlude
-EXCLUDE="{MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,/.git}"
+EXCLUDE="{MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,.rustup,/.git}"
 
 # Use fd for fuzzy file finding
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
