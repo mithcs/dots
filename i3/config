@@ -211,7 +211,6 @@ client.unfocused        $overlay0                    $base                      
 client.urgent           $peach                       $base                        $peach                       $overlay0                    $peach
 client.placeholder      $overlay0                    $base                        $text                        $overlay0                    $overlay0
 
-
 ### Start with i3
 
 # WALLPAPER
@@ -231,7 +230,8 @@ font $wm_setting_font
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-## Shortcuts
+
+### Shortcuts
 
 # Enter fullscreen mode for the focused window
 bindsym $mod+f fullscreen toggle
