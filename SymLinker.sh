@@ -7,7 +7,8 @@ CURRENT_DIR=$(pwd)
 
 # Setup source and target pairs
 declare -A LINKS=(
-    ["$CURRENT_DIR/nvim"]="$HOME/.config/abc"
+    ["$CURRENT_DIR/awesome"]="$HOME/.config/awesome"
+    ["$CURRENT_DIR/nvim"]="$HOME/.config/nvim"
     ["$CURRENT_DIR/hypr"]="$HOME/.config/hypr"
     ["$CURRENT_DIR/i3"]="$HOME/.config/i3"
     ["$CURRENT_DIR/polybar"]="$HOME/.config/polybar"
