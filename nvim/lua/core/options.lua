@@ -9,6 +9,7 @@ opt.clipboard = 'unnamedplus'                  -- Copy/paste to system clipboard
 opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 opt.swapfile = false                           -- No swap file
 opt.colorcolumn = '81'                         -- Line lenght marker at 80 columns
+opt.foldenable = false
 -- opt.textwidth = 80                             -- Set textwidth to 80 columns
 opt.wrap = false                               -- Wrap lines
 opt.fillchars:append({ eob = " " })            -- To remove tilde(~)
