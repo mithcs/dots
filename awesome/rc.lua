@@ -24,11 +24,11 @@ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Autorun programs
-local autorun = true
-
-autorunApps = {
-    "dunst -config $HOME/.config/dunst/dunstrc"
-}
+-- local autorun = true
+--
+-- autorunApps = {
+--     "dunst -config $HOME/.config/dunst/dunstrc"
+-- }
 
 if autorun then
     for app = 1, #autorunApps do

@@ -1,6 +1,8 @@
 require("variables")
 
 local awful = require("awful")
+local beautiful = require("beautiful")
+local naughty = require("naughty")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local lain = require("lain")
@@ -45,6 +47,30 @@ globalkeys = gears.table.join(
               {description = "open one of the texts", group = "utils"}),
     awful.key({ modkey }, "t", function () awful.spawn(set_time) end,
               {description = "set date and time", group = "utils"}),
+
+    -- Notification bindings
+    awful.key({ modkey, smodkey }, "minus", function () naughty.destroy_all_notifications() end,
+              {description = "destroy all notifications", group = "utils"}),
+
+    -- ALSA volume control
+    awful.key({ altkey }, "Up",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume up", group = "volumne"}),
+    awful.key({ altkey }, "Down",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume down", group = "volumne"}),
+    awful.key({ altkey }, "m",
+        function ()
+            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "toggle mute", group = "volumne"}),
 
     -- TODO: Add dunst notification bindings
     -- TODO: Add network manager bindindgs
