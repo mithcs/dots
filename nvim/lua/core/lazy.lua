@@ -102,9 +102,6 @@ lazy.setup({
             end
         },
 
-        -- LSP-kind
-        { "onsails/lspkind.nvim" },
-
         -- Telescope-undo
         {
             "debugloop/telescope-undo.nvim",
@@ -139,18 +136,10 @@ lazy.setup({
             end,
         },
 
-        -- Supermaven
-        -- {
-        --     "supermaven-inc/supermaven-nvim",
-        -- },
-
-        -- LSP-zero
-
-        --- Uncomment the two plugins below if you want to manage the language servers from neovim
+        -- LSP
         {'williamboman/mason.nvim'},
         {'williamboman/mason-lspconfig.nvim'},
 
-        {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
         {'neovim/nvim-lspconfig'},
         {'hrsh7th/cmp-nvim-lsp'},
         {'saadparwaiz1/cmp_luasnip'},
