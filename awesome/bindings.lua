@@ -108,12 +108,6 @@ globalkeys = gears.table.join(
         end,
         {description = "toggle wibox", group = "awesome"}),
 
-    -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-
     -- On-the-fly useless gaps change
     awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
