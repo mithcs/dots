@@ -1,7 +1,6 @@
 local gears         = require("gears")
 local beautiful     = require("beautiful")
 local awful = require("awful")
-local mytable = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Variables to be used later
 -- These are the base
@@ -79,7 +78,7 @@ altkey = "Mod1"
 
 
 -- ---------- ---------- ---------- ----------
-awful.util.taglist_buttons = mytable.join(
+awful.util.taglist_buttons = gears.table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
     awful.button({ modkey }, 1, function(t)
         if client.focus then client.focus:move_to_tag(t) end
@@ -92,7 +91,7 @@ awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
-awful.util.tasklist_buttons = mytable.join(
+awful.util.tasklist_buttons = gears.table.join(
      awful.button({ }, 1, function(c)
          if c == client.focus then
              c.minimized = true
