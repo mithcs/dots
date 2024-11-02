@@ -10,7 +10,7 @@ scripts_dir = " $HOME/zzz"
 
 -- Programs
 terminal = "st"
-browser = "yandex-browser-stable"
+browser = "google-chrome-stable"
 file_explorer = "file_explorer"
 megasync = "megasync"
 editor = "nvim"
