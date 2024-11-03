@@ -19,8 +19,6 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,  smodkey  }, "Return", function () awful.spawn(browser) end,
-              {description = "open a browser", group = "launcher"}),
     awful.key({ modkey }, "p", function () awful.spawn(rofi_launcher) end,
               {description = "open rofi launcher", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn(file_explorer) end,
@@ -29,10 +27,12 @@ globalkeys = gears.table.join(
               {description = "open btop", group = "launcher"}),
     awful.key({ modkey }, "n", function () awful.spawn(terminal .. neomutt) end,
               {description = "open neomutt", group = "launcher"}),
-    awful.key({ modkey }, "m", function () awful.spawn(megasync, false) end,
-              {description = "open megasync", group = "launcher"}),
     awful.key({ modkey }, "period", function () awful.spawn(zoomer, false) end,
               {description = "open zoomer", group = "launcher"}),
+    awful.key({ modkey,  smodkey  }, "Return", function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey, smodkey }, "m", function () awful.spawn(megasync, false) end,
+              {description = "open megasync", group = "launcher"}),
 
     -- Utils bindings
     awful.key({ modkey }, "i", function () awful.spawn(add_clipmark) end,
@@ -238,7 +238,7 @@ clientkeys = gears.table.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
-    awful.key({ modkey, smodkey }, "m",
+    awful.key({ modkey }, "m",
         function (c)
             c.maximized = not c.maximized
             c:raise()
