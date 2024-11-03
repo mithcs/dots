@@ -1,0 +1,60 @@
+#
+# /home/veloXm/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
+# Generated on Sun Nov  3 23:00:38 2024
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+ToolTips = Yes
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = No
+ShowQuitDialog = Yes
+UpdateRulesOnProfileNameChange = Yes
+Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+
+# Attributes:
+
+0/SyncToVBlank=1
+0/LogAniso=0
+0/FSAA=12
+0/TextureSharpen=0
+0/TextureClamping=1
+0/FXAA=0
+0/AllowFlipping=1
+0/FSAAAppControlled=0
+0/LogAnisoAppControlled=0
+0/OpenGLImageSettings=3
+0/FSAAAppEnhanced=0
+0/XVideoSyncToDisplayID=DVI-I-0
+[DPY:DVI-I-0]/Dithering=0
+[DPY:DVI-I-0]/DitheringMode=0
+[DPY:DVI-I-0]/DitheringDepth=0
+[DPY:DVI-I-0]/SynchronousPaletteUpdates=0
+[DPY:VGA-0]/RedBrightness=0.198113
+[DPY:VGA-0]/GreenBrightness=0.198113
+[DPY:VGA-0]/BlueBrightness=0.198113
+[DPY:VGA-0]/RedContrast=0.056604
+[DPY:VGA-0]/GreenContrast=0.056604
+[DPY:VGA-0]/BlueContrast=0.056604
+[DPY:VGA-0]/RedGamma=0.809811
+[DPY:VGA-0]/GreenGamma=0.809811
+[DPY:VGA-0]/BlueGamma=0.809811
+[DPY:VGA-0]/Dithering=1
+[DPY:VGA-0]/DitheringMode=0
+[DPY:VGA-0]/DitheringDepth=0
+[DPY:VGA-0]/DigitalVibrance=115
+[DPY:VGA-0]/SynchronousPaletteUpdates=0
+[DPY:DVI-I-1]/Dithering=0
+[DPY:DVI-I-1]/DitheringMode=0
+[DPY:DVI-I-1]/DitheringDepth=0
+[DPY:DVI-I-1]/SynchronousPaletteUpdates=0
+[DPY:HDMI-0]/Dithering=0
+[DPY:HDMI-0]/DitheringMode=0
+[DPY:HDMI-0]/DitheringDepth=0
+[DPY:HDMI-0]/SynchronousPaletteUpdates=0

@@ -15,6 +15,7 @@ declare -A LINKS=(
     ["$CURRENT_DIR/rofi"]="$HOME/.config/rofi"
     ["$CURRENT_DIR/dunst"]="$HOME/.config/dunst"
     ["$CURRENT_DIR/.xinitrc"]="$HOME/.xinitrc"
+    ["$CURRENT_DIR/.nvidia-settings-rc"]="$HOME/.nvidia-settings-rc"
     # ["$CURRENT_DIR/neomutt"]="$HOME/.config/neomutt"
     ["$CURRENT_DIR/Thunar"]="$HOME/.config/Thunar"
     ["$CURRENT_DIR/st"]="$HOME/.config/st"
