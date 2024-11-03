@@ -47,6 +47,7 @@ alias \
 # Others
 alias wireshark='sudo wireshark'
 alias baobab='GSK_RENDERER=cairo baobab'
+alias winetricks='GSK_RENDERER=cairo winetricks'
 alias qml='/usr/lib/qt6/bin/qml'
 alias cpc='xclip -selection clipboard'
 alias pgres='sudo su - postgres'
@@ -100,6 +101,7 @@ bindkey '^R' fzf-history-widget
 bindkey '^G' fzf-cd
 
 # Others
-export ANDROID_HOME=/opt/android-sdk
-export FLUTTER=/opt/flutter/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$FLUTTER
+# Flutter setup
+# export ANDROID_HOME=/opt/android-sdk
+# export FLUTTER=/opt/flutter/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools:$FLUTTER
