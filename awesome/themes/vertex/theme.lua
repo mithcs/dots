@@ -270,7 +270,7 @@ function theme.vertical_wibox(s)
     -- Create the vertical wibox
     s.dockheight = (35 *  s.workarea.height)/100
 
-    s.myleftwibox = wibox({ screen = s, x=0, y=s.workarea.height/2 - s.dockheight/2, width = dpi(6), height = s.dockheight, fg = theme.fg_normal, bg = barcolor2, ontop = true, visible = true, type = "dock" })
+    s.myleftwibox = wibox({ screen = s, x=0, y=s.workarea.height/2 - s.dockheight/2, width = dpi(2), height = s.dockheight, fg = theme.fg_normal, bg = barcolor2, ontop = true, visible = true, type = "dock" })
 
     if s.index > 1 and s.myleftwibox.y == 0 then
         s.myleftwibox.y = screen[1].myleftwibox.y
@@ -290,10 +290,10 @@ function theme.vertical_wibox(s)
     }
 
     -- Add toggling functionalities
-    s.docktimer = gears.timer{ timeout = 2 }
+    s.docktimer = gears.timer{ timeout = 1 }
     s.docktimer:connect_signal("timeout", function()
         local s = awful.screen.focused()
-        s.myleftwibox.width = dpi(9)
+        s.myleftwibox.width = dpi(2)
         s.layoutb.visible = false
         mylauncher.visible = false
         if s.docktimer.started then
@@ -313,7 +313,7 @@ function theme.vertical_wibox(s)
 
     s.myleftwibox:connect_signal("mouse::leave", function()
         local s = awful.screen.focused()
-        s.myleftwibox.width = dpi(9)
+        s.myleftwibox.width = dpi(2)
         s.layoutb.visible = false
         mylauncher.visible = false
     end)
