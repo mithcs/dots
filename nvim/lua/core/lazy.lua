@@ -142,10 +142,7 @@ lazy.setup({
 
         {'neovim/nvim-lspconfig'},
         {'hrsh7th/cmp-nvim-lsp'},
-        {'saadparwaiz1/cmp_luasnip'},
         {'hrsh7th/nvim-cmp'},
-        {'L3MON4D3/LuaSnip'},
-        {'rafamadriz/friendly-snippets'},
     },
     performance = {
         rtp = {

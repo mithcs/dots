@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global           -- undefined global vim
 -- Define keymaps of Neovim and installed plugins
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
@@ -110,6 +111,10 @@ map('n', '<leader>go', ':!go build %<CR>')
 -- Set parent directory as root
 map('n', '<leader>R', ':cd %:h<CR>')
 
--- didn't create neoclip.lua...
+-- Others
+
 -- Neo-clip
 map('n', '<leader>y', ':Telescope neoclip<CR>')
+
+-- Turn on LSP
+map('n', '<leader>sp', ':LspStart<CR> <bar> :echo "Starting LSP..."<CR>')
