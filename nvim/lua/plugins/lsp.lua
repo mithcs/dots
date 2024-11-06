@@ -124,7 +124,7 @@ end
 
 vim.api.nvim_create_user_command('NvimCmpToggle', toggle_autocomplete, {})
 
-vim.api.nvim_set_keymap('n', '<leader>a', ':NvimCmpToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>nt', ':NvimCmpToggle<CR>', { noremap = true, silent = true })
 -- -----------------------
 -- Setup lsp servers
 -- -----------------------
