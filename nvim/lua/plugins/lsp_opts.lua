@@ -20,6 +20,11 @@ end
 
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
+
+    -- set custom shortcuts here
+    if client.name == "gopls" then
+        vim.keymap.set("n", "<leader>err", 'iif err != nil {\n    panic!(err)\n}<Esc>', {buffer = bufnr, remap = false})
+    end
 end
 
 return M
