@@ -38,27 +38,25 @@ theme.awesome_icon                              = theme.icon_dir .. "/awesome.pn
 theme.taglist_squares_sel                       = gears.surface.load_from_shape(dpi(3), dpi(30), gears.shape.rectangle, theme.fg_focus)
 theme.taglist_squares_unsel                     = gears.surface.load_from_shape(dpi(3), dpi(30), gears.shape.rectangle, theme.bg_focus2)
 theme.panelbg                                   = theme.icon_dir .. "/panel.png"
-theme.bat000charging                            = theme.icon_dir .. "/bat-000-charging.png"
-theme.bat000                                    = theme.icon_dir .. "/bat-000.png"
-theme.bat020charging                            = theme.icon_dir .. "/bat-020-charging.png"
-theme.bat020                                    = theme.icon_dir .. "/bat-020.png"
-theme.bat040charging                            = theme.icon_dir .. "/bat-040-charging.png"
-theme.bat040                                    = theme.icon_dir .. "/bat-040.png"
-theme.bat060charging                            = theme.icon_dir .. "/bat-060-charging.png"
-theme.bat060                                    = theme.icon_dir .. "/bat-060.png"
-theme.bat080charging                            = theme.icon_dir .. "/bat-080-charging.png"
-theme.bat080                                    = theme.icon_dir .. "/bat-080.png"
-theme.bat100charging                            = theme.icon_dir .. "/bat-100-charging.png"
-theme.bat100                                    = theme.icon_dir .. "/bat-100.png"
-theme.batcharged                                = theme.icon_dir .. "/bat-charged.png"
+-- theme.bat000charging                            = theme.icon_dir .. "/bat-000-charging.png"
+-- theme.bat000                                    = theme.icon_dir .. "/bat-000.png"
+-- theme.bat020charging                            = theme.icon_dir .. "/bat-020-charging.png"
+-- theme.bat020                                    = theme.icon_dir .. "/bat-020.png"
+-- theme.bat040charging                            = theme.icon_dir .. "/bat-040-charging.png"
+-- theme.bat040                                    = theme.icon_dir .. "/bat-040.png"
+-- theme.bat060charging                            = theme.icon_dir .. "/bat-060-charging.png"
+-- theme.bat060                                    = theme.icon_dir .. "/bat-060.png"
+-- theme.bat080charging                            = theme.icon_dir .. "/bat-080-charging.png"
+-- theme.bat080                                    = theme.icon_dir .. "/bat-080.png"
+-- theme.bat100charging                            = theme.icon_dir .. "/bat-100-charging.png"
+-- theme.bat100                                    = theme.icon_dir .. "/bat-100.png"
+-- theme.batcharged                                = theme.icon_dir .. "/bat-charged.png"
 theme.ethon                                     = theme.icon_dir .. "/ethernet-connected.png"
 theme.ethoff                                    = theme.icon_dir .. "/ethernet-disconnected.png"
-theme.volhigh                                   = theme.icon_dir .. "/volume-high.png"
-theme.vollow                                    = theme.icon_dir .. "/volume-low.png"
-theme.volmed                                    = theme.icon_dir .. "/volume-medium.png"
-theme.volmutedblocked                           = theme.icon_dir .. "/volume-muted-blocked.png"
-theme.volmuted                                  = theme.icon_dir .. "/volume-muted.png"
-theme.voloff                                    = theme.icon_dir .. "/volume-off.png"
+theme.vol                                       = theme.icon_dir .. "/icons/vol.png"
+theme.vol_low                                   = theme.icon_dir .. "/icons/vol_low.png"
+theme.vol_no                                    = theme.icon_dir .. "/icons/vol_no.png"
+theme.vol_mute                                  = theme.icon_dir .. "/icons/vol_mute.png"
 theme.wifidisc                                  = theme.icon_dir .. "/wireless-disconnected.png"
 theme.wififull                                  = theme.icon_dir .. "/wireless-full.png"
 theme.wifihigh                                  = theme.icon_dir .. "/wireless-high.png"
@@ -83,7 +81,7 @@ theme.layout_cornersw                           = theme.default_dir.."/layouts/c
 theme.layout_cornerse                           = theme.default_dir.."/layouts/cornersew.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = dpi(10)
+theme.useless_gap                               = dpi(4)
 theme.titlebar_close_button_normal              = theme.default_dir.."/titlebar/close_normal.png"
 theme.titlebar_close_button_focus               = theme.default_dir.."/titlebar/close_focus.png"
 theme.titlebar_minimize_button_normal           = theme.default_dir.."/titlebar/minimize_normal.png"
@@ -106,7 +104,7 @@ theme.titlebar_maximized_button_normal_active   = theme.default_dir.."/titlebar/
 theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/maximized_focus_active.png"
 
 -- http://fontawesome.io/cheatsheet
-awful.util.tagnames = { "", "", "", "", "", "", "", "" }
+awful.util.tagnames = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8" }
 
 local markup = lain.util.markup
 
@@ -164,71 +162,53 @@ local bat = lain.widget.bat({
     end
 })
 
--- MPD
-theme.mpd = lain.widget.mpd({
-    music_dir = "/mnt/storage/Downloads/Music",
-    settings = function()
-        if mpd_now.state == "play" then
-            title = mpd_now.title
-            artist  = "  " .. mpd_now.artist  .. " "
-        elseif mpd_now.state == "pause" then
-            title = "mpd "
-            artist  = "paused "
-        else
-            title  = ""
-            artist = ""
-        end
-
-        widget:set_markup(markup.font(theme.font, title .. markup(theme.fg_focus, artist)))
-    end
-})
-
--- ALSA volume
-local volicon = wibox.widget.imagebox()
-theme.volume = lain.widget.alsabar({
+-- ALSA volume bar
+local volicon = wibox.widget.imagebox(theme.vol)
+theme.volume = lain.widget.alsabar {
+    width = dpi(59), border_width = 0, ticks = true, ticks_size = dpi(6),
+    notification_preset = { font = theme.font },
     --togglechannel = "IEC958,3",
-    notification_preset = { font = "Monospace 12", fg = theme.fg_normal },
     settings = function()
-        local index, perc = "", tonumber(volume_now.level) or 0
-
         if volume_now.status == "off" then
-            index = "volmutedblocked"
+            volicon:set_image(theme.vol_mute)
+        elseif volume_now.level == 0 then
+            volicon:set_image(theme.vol_no)
+        elseif volume_now.level <= 50 then
+            volicon:set_image(theme.vol_low)
         else
-            if perc <= 5 then
-                index = "volmuted"
-            elseif perc <= 25 then
-                index = "vollow"
-            elseif perc <= 75 then
-                index = "volmed"
-            else
-                index = "volhigh"
-            end
+            volicon:set_image(theme.vol)
         end
-
-        volicon:set_image(theme[index])
-    end
-})
-volicon:buttons(my_table.join (
+    end,
+    colors = {
+        background   = theme.bg_normal,
+        mute         = red,
+        unmute       = theme.fg_normal
+    }
+}
+theme.volume.tooltip.wibox.fg = theme.fg_focus
+theme.volume.bar:buttons(my_table.join (
           awful.button({}, 1, function()
             awful.spawn(string.format("%s -e alsamixer", awful.util.terminal))
           end),
           awful.button({}, 2, function()
             os.execute(string.format("%s set %s 100%%", theme.volume.cmd, theme.volume.channel))
-            theme.volume.notify()
+            theme.volume.update()
           end),
           awful.button({}, 3, function()
             os.execute(string.format("%s set %s toggle", theme.volume.cmd, theme.volume.togglechannel or theme.volume.channel))
-            theme.volume.notify()
+            theme.volume.update()
           end),
           awful.button({}, 4, function()
             os.execute(string.format("%s set %s 1%%+", theme.volume.cmd, theme.volume.channel))
-            theme.volume.notify()
+            theme.volume.update()
           end),
           awful.button({}, 5, function()
             os.execute(string.format("%s set %s 1%%-", theme.volume.cmd, theme.volume.channel))
-            theme.volume.notify()
+            theme.volume.update()
           end)
 ))
+local volumebg = wibox.container.background(theme.volume.bar, "#474747", gears.shape.rectangle)
+local volumewidget = wibox.container.margin(volumebg, dpi(2), dpi(7), dpi(4), dpi(4))
 
 -- Wifi carrier and signal strength
 local wificon = wibox.widget.imagebox(theme.wifidisc)
@@ -449,17 +429,13 @@ function theme.at_screen_connect(s)
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
             rspace0,
-            --theme.weather.icon,
-            --theme.weather.widget,
             rspace1,
             wificon,
             rspace0,
             volicon,
-            rspace2,
-            baticon,
-            rspace3,
+            volumewidget,
+            rspace1,
             wibox.widget.systray(),
         },
     }

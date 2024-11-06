@@ -97,7 +97,7 @@ local themes = {
     "vertex"           -- 10
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[10]
 local modkey       = "Mod4"
 local smodkey      = "Shift"
 local altkey       = "Mod1"
@@ -335,7 +335,7 @@ globalkeys = mytable.join(
         {description = "toggle wibox", group = "awesome"}),
 
     -- On-the-fly useless gaps change
-    awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
+    awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),

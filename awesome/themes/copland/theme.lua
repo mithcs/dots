@@ -45,9 +45,6 @@ theme.vol_no                                    = theme.dir .. "/icons/vol_no.pn
 theme.vol_mute                                  = theme.dir .. "/icons/vol_mute.png"
 theme.disk                                      = theme.dir .. "/icons/disk.png"
 theme.ac                                        = theme.dir .. "/icons/ac.png"
-theme.bat                                       = theme.dir .. "/icons/bat.png"
-theme.bat_low                                   = theme.dir .. "/icons/bat_low.png"
-theme.bat_no                                    = theme.dir .. "/icons/bat_no.png"
 theme.play                                      = theme.dir .. "/icons/play.png"
 theme.pause                                     = theme.dir .. "/icons/pause.png"
 theme.stop                                      = theme.dir .. "/icons/stop.png"
@@ -128,78 +125,6 @@ theme.mail = lain.widget.imap({
     end
 })
 --]]
-
--- MPD
-local mpdicon = wibox.widget.imagebox()
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        if mpd_now.state == "play" then
-            title = mpd_now.title
-            artist  = " " .. mpd_now.artist  .. markup("#777777", " <span font='Terminus 2'> </span>|<span font='Terminus 5'> </span>")
-            mpdicon:set_image(theme.play)
-        elseif mpd_now.state == "pause" then
-            title = "mpd "
-            artist  = "paused" .. markup("#777777", " |<span font='Terminus 5'> </span>")
-            mpdicon:set_image(theme.pause)
-        else
-            title  = ""
-            artist = ""
-            mpdicon._private.image = nil
-            mpdicon:emit_signal("widget::redraw_needed")
-            mpdicon:emit_signal("widget::layout_changed")
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(blue, title) .. artist))
-    end
-})
-
--- Battery
-local baticon = wibox.widget.imagebox(theme.bat)
-local batbar = wibox.widget {
-    forced_height    = dpi(1),
-    forced_width     = dpi(59),
-    color            = theme.fg_normal,
-    background_color = theme.bg_normal,
-    margins          = 1,
-    paddings         = 1,
-    ticks            = true,
-    ticks_size       = dpi(6),
-    widget           = wibox.widget.progressbar,
-}
-local batupd = lain.widget.bat({
-    settings = function()
-        if (not bat_now.status) or bat_now.status == "N/A" or type(bat_now.perc) ~= "number" then return end
-
-        if bat_now.status == "Charging" then
-            baticon:set_image(theme.ac)
-            if bat_now.perc >= 98 then
-                batbar:set_color(green)
-            elseif bat_now.perc > 50 then
-                batbar:set_color(theme.fg_normal)
-            elseif bat_now.perc > 15 then
-                batbar:set_color(theme.fg_normal)
-            else
-                batbar:set_color(red)
-            end
-        else
-            if bat_now.perc >= 98 then
-                batbar:set_color(green)
-            elseif bat_now.perc > 50 then
-                batbar:set_color(theme.fg_normal)
-                baticon:set_image(theme.bat)
-            elseif bat_now.perc > 15 then
-                batbar:set_color(theme.fg_normal)
-                baticon:set_image(theme.bat_low)
-            else
-                batbar:set_color(red)
-                baticon:set_image(theme.bat_no)
-            end
-        end
-        batbar:set_value(bat_now.perc / 100)
-    end
-})
-local batbg = wibox.container.background(batbar, "#474747", gears.shape.rectangle)
-local batwidget = wibox.container.margin(batbg, dpi(2), dpi(7), dpi(4), dpi(4))
 
 -- /home fs
 --[[ commented because it needs Gio/Glib >= 2.54
@@ -356,13 +281,6 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             small_spr,
             --theme.mail.widget,
-            mpdicon,
-            theme.mpd.widget,
-            baticon,
-            batwidget,
-            bar_spr,
-            --fsicon,
-            --fswidget,
             bar_spr,
             volicon,
             volumewidget,
