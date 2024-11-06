@@ -122,46 +122,6 @@ theme.cal = lain.widget.cal({
     }
 })
 
--- Battery
-local baticon = wibox.widget.imagebox(theme.bat000)
-local battooltip = awful.tooltip({
-    objects = { baticon },
-    margin_leftright = dpi(15),
-    margin_topbottom = dpi(12)
-})
-battooltip.wibox.fg = theme.fg_normal
-battooltip.textbox.font = theme.font
-battooltip.timeout = 0
-battooltip:set_shape(function(cr, width, height)
-    gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(35))
-end)
-local bat = lain.widget.bat({
-    settings = function()
-        local index, perc = "bat", tonumber(bat_now.perc) or 0
-
-        if perc <= 7 then
-            index = index .. "000"
-        elseif perc <= 20 then
-            index = index .. "020"
-        elseif perc <= 40 then
-            index = index .. "040"
-        elseif perc <= 60 then
-            index = index .. "060"
-        elseif perc <= 80 then
-            index = index .. "080"
-        elseif perc <= 100 then
-            index = index .. "100"
-        end
-
-        if bat_now.ac_status == 1 then
-            index = index .. "charging"
-        end
-
-        baticon:set_image(theme[index])
-        battooltip:set_markup(string.format("\n%s%%, %s", perc, bat_now.time))
-    end
-})
-
 -- ALSA volume bar
 local volicon = wibox.widget.imagebox(theme.vol)
 theme.volume = lain.widget.alsabar {
@@ -224,7 +184,7 @@ wifitooltip:set_shape(function(cr, width, height)
     gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(120))
 end)
 local mywifisig = awful.widget.watch(
-    { awful.util.shell, "-c", "awk 'NR==3 {printf(\"%d-%.0f\\n\",$2, $3*10/7)}' /proc/net/wireless; iw dev wlan0 link" },
+    { awful.util.shell, "-c", "awk 'NR==3 {printf(\"%d-%.0f\\n\",$2, $3*10/7)}' /proc/net/wireless; iw dev wlp0s29u1u7 link" }, -- NOTE: Update interface name when required
     2,
     function(widget, stdout)
         local carrier, perc = stdout:match("(%d)-(%d+)")
