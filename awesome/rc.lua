@@ -392,7 +392,7 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "F4", function () awful.spawn(rofi_powermenu) end,
               {description = "open rofi powermenu", group = "utils"}),
     awful.key({ modkey, smodkey }, "F4", function () awful.spawn(shutdown) end,
-              {description = "open rofi powermenu", group = "utils"}),
+              {description = "shutdown pc instantly", group = "utils"}),
 
     -- More layout bindings
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
