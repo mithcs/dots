@@ -58,6 +58,9 @@ lspconfig.rust_analyzer.setup({
 local cmp = require('cmp')
 
 cmp.setup({
+    completion = {
+        autocomplete = false, -- Disable autocomplete by default
+    },
     sources = {
         {name = 'path'},
         {name = 'nvim_lsp'},
@@ -107,6 +110,21 @@ cmp.setup({
     }
 })
 
+-- Toggle completions
+local function toggle_autocomplete()
+  local current_setting = cmp.get_config().completion.autocomplete
+  if current_setting and #current_setting > 0 then
+    cmp.setup({ completion = { autocomplete = false } })
+    print('Autocomplete disabled')
+  else
+    cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
+    print('Autocomplete enabled')
+  end
+end
+
+vim.api.nvim_create_user_command('NvimCmpToggle', toggle_autocomplete, {})
+
+vim.api.nvim_set_keymap('n', '<leader>a', ':NvimCmpToggle<CR>', { noremap = true, silent = true })
 -- -----------------------
 -- Setup lsp servers
 -- -----------------------
@@ -115,7 +133,6 @@ local on_attach = require('plugins.lsp_opts').on_attach
 require('mason-lspconfig').setup_handlers({
     function(server)
         local opts = {
-            autostart = false,
             on_attach = on_attach
         }
         lspconfig[server].setup(opts)

@@ -115,6 +115,3 @@ map('n', '<leader>R', ':cd %:h<CR>')
 
 -- Neo-clip
 map('n', '<leader>y', ':Telescope neoclip<CR>')
-
--- Turn on LSP
-map('n', '<leader>sp', ':LspStart<CR> <bar> :echo "Starting LSP..."<CR>')
