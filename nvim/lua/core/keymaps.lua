@@ -26,6 +26,7 @@ map('i', '<C-.>', '<Nop>')
 -- Append easily
 map('n', '<leader>a', 'A')
 
+-- Buffer mappings
 map('n', '<Space>n', ':bn<CR>')
 map('n', '<Space>p', ':bp<CR>')
 map('n', '<Space>d', ':bd<CR>')
@@ -82,6 +83,9 @@ map('n', '<leader>go', ':!go build %<CR>')
 
 -- Set parent directory as root
 map('n', '<leader>R', ':cd %:h<CR>')
+
+-- Go to config file
+map('n', '<leader>c', ':e $MYVIMRC')
 
 -- Others
 
