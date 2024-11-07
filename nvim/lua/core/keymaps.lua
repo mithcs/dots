@@ -26,6 +26,10 @@ map('i', '<C-.>', '<Nop>')
 -- Append easily
 map('n', '<leader>a', 'A')
 
+map('n', '<Space>n', ':bn<CR>')
+map('n', '<Space>p', ':bp<CR>')
+map('n', '<Space>d', ':bd<CR>')
+
 -- Create Split
 map('n', '<leader>s', ':split<CR>')
 map('n', '<leader>vs',':vsplit<CR>')
