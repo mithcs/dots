@@ -54,6 +54,9 @@ lazy.setup({
         -- Comment
         {
             'numToStr/Comment.nvim',
+            opts = {
+                -- This is required, probably if there is no separate config file
+            },
             lazy = false,
         },
 
