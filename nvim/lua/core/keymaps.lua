@@ -17,34 +17,6 @@ vim.g.mapleader = '.'
 
 -- --------------------- --------------------- ---------------------
 
--- Function to set up buffer mappings in the order they were opened
-function Setup_buffer_mappings()
-  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
-  local buffer_table = {}
-
-  for _, buf in ipairs(buffers) do
-    table.insert(buffer_table, buf.bufnr)
-  end
-
-  for i = 1, #buffer_table do
-    if i <= 9 then
-      local buf_number = buffer_table[i]
-      map('n', '<leader>' .. i, ':b ' .. buf_number .. '<CR>')
-    end
-  end
-end
-
-Setup_buffer_mappings()
-
-vim.cmd([[
-  augroup BufferMappings
-    autocmd!
-    autocmd BufAdd,BufDelete * lua Setup_buffer_mappings()
-  augroup END
-]])
-
--- --------------------- --------------------- ---------------------
-
 -- Neovim Shortcuts
 
 -- Remove annoyance
@@ -53,10 +25,6 @@ map('i', '<C-.>', '<Nop>')
 
 -- Append easily
 map('n', '<leader>a', 'A')
-
-map('n', '<Space>n', ':bn<CR>')
-map('n', '<Space>p', ':bp<CR>')
-map('n', '<Space>d', ':bd<CR>')
 
 -- Create Split
 map('n', '<leader>s', ':split<CR>')
