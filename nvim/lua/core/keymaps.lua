@@ -43,9 +43,6 @@ map('i', 'jk', '<C-c>')
 -- map('n', ':Wq', ':wq<CR>')
 -- map('n', ':Q', ':q<CR>')
 
--- Clear search highlighting with <leader> and c
-map('n', '<leader>c', ':nohl<CR>')
-
 -- Change split orientation
 map('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
 map('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
@@ -85,7 +82,7 @@ map('n', '<leader>go', ':!go build %<CR>')
 map('n', '<leader>R', ':cd %:h<CR>')
 
 -- Go to config file
-map('n', '<leader>c', ':e $MYVIMRC')
+map('n', '<leader>c', ':e $MYVIMRC<CR>')
 
 -- Others
 
