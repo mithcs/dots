@@ -68,6 +68,9 @@ map('n', '<leader>w', ':w<CR>')
 -- Spell check
 map('n', '<F12>', ':setlocal spell! spelllang=en<CR>')
 
+-- Move line up or down
+map('n', '<A-j>', ':m+<CR>')
+map('n', '<A-k>', ':m--<CR>')
 
 -- Compile a C program
 map('n', '<leader>gc', ':!gcc -Wall % -o %:r.out<CR>')
