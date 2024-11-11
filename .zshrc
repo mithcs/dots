@@ -51,6 +51,7 @@ alias winetricks='GSK_RENDERER=cairo winetricks'
 alias qml='/usr/lib/qt6/bin/qml'
 alias cpc='xclip -selection clipboard'
 alias pgres='sudo su - postgres'
+alias rm='rm -I'
 
 # FZF setup
 
