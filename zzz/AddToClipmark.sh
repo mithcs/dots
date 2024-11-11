@@ -15,6 +15,10 @@ if ! [ -f $clipmark ]; then
     fi
 fi
 
+if [ "$text" = "" ]; then
+    dunstify "Nothing is selected"
+    exit 1
+fi
 
 
 if grep $text $clipmark; then
@@ -23,3 +27,5 @@ else
     echo "$text" >> $clipmark
     dunstify "$text added to clipmark"
 fi
+
+exit 0
