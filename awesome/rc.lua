@@ -252,7 +252,7 @@ globalkeys = mytable.join(
               {description = "open emoji picker", group = "utils"}),
     awful.key({ modkey }, "space", function () awful.spawn(texts_opener) end,
               {description = "open one of the texts", group = "utils"}),
-    awful.key({ modkey }, "t", function () awful.spawn(set_time) end,
+    awful.key({ modkey, smodkey }, "t", function () awful.spawn(set_time) end,
               {description = "set date and time", group = "utils"}),
 
     -- Notification bindings
@@ -436,7 +436,7 @@ clientkeys = mytable.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey, smodkey   }, "t",      function (c) c.ontop = not c.ontop            end,
+    awful.key({ modkey }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "bracketleft",
         function (c)
