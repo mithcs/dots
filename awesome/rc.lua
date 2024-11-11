@@ -255,6 +255,11 @@ globalkeys = mytable.join(
     awful.key({ modkey, smodkey }, "t", function () awful.spawn(set_time) end,
               {description = "set date and time", group = "utils"}),
 
+    awful.key({ modkey }, "F4", function () awful.spawn(rofi_powermenu) end,
+              {description = "open rofi powermenu", group = "utils"}),
+    awful.key({ modkey, smodkey }, "F4", function () awful.spawn(shutdown) end,
+              {description = "shutdown pc instantly", group = "utils"}),
+
     -- Notification bindings
     awful.key({ modkey, smodkey }, "minus", function () naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "utils"}),
@@ -265,19 +270,19 @@ globalkeys = mytable.join(
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end,
-        {description = "volume up", group = "volumne"}),
+        {description = "volume up", group = "volume"}),
     awful.key({ altkey }, "Down",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
-        {description = "volume down", group = "volumne"}),
+        {description = "volume down", group = "volume"}),
     awful.key({ altkey }, "m",
         function ()
             os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
         end,
-        {description = "toggle mute", group = "volumne"}),
+        {description = "toggle mute", group = "volume"}),
 
     -- TODO: Add network manager bindindgs
 
@@ -293,15 +298,15 @@ globalkeys = mytable.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, smodkey }, "e", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    awful.key({ modkey }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
     -- Tag related bindings
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     -- Show/hide wibox
@@ -369,16 +374,10 @@ globalkeys = mytable.join(
         end,
         {description = "go back", group = "client"}),
 
-    -- System related bindings
-    awful.key({ modkey }, "F4", function () awful.spawn(rofi_powermenu) end,
-              {description = "open rofi powermenu", group = "utils"}),
-    awful.key({ modkey, smodkey }, "F4", function () awful.spawn(shutdown) end,
-              {description = "shutdown pc instantly", group = "utils"}),
-
     -- More layout bindings
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, smodkey   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -388,9 +387,9 @@ globalkeys = mytable.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, smodkey   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, smodkey }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, smodkey }, "bracketleft",
@@ -434,11 +433,9 @@ clientkeys = mytable.join(
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-              {description = "move to screen", group = "client"}),
     awful.key({ modkey }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "bracketleft",
+    awful.key({ modkey }, "bracketleft",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
