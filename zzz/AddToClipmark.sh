@@ -1,11 +1,25 @@
 #!/bin/bash
 
+# This script added selected text to clipmark
+
+clipmark="/home/veloXm/clipmark.txt"
 text=$(xclip -out -selection primary)
 
-if grep $text /home/veloXm/clipmark.txt
-then
-    dunstify "$text is already in clipmark."
+if ! [ -f $clipmark ]; then
+    dunstify "$clipmark does not exist. Creating it..."
+    touch $clipmark
+
+    if [ ! $? ]; then
+        dunstify "failed to create $clipmark"
+        exit 1
+    fi
+fi
+
+
+
+if grep $text $clipmark; then
+    dunstify "$text is already  in clipmark"
 else
-    echo "$text" >> /home/veloXm/clipmark.txt
-    dunstify "$text is added to clipmark."
+    echo "$text" >> $clipmark
+    dunstify "$text added to clipmark"
 fi
