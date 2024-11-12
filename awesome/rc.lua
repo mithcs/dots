@@ -244,7 +244,7 @@ globalkeys = mytable.join(
     -- Utils bindings
     awful.key({ modkey }, "i", function () awful.spawn(add_clipmark) end,
               {description = "add selected text to clipmark", group = "utils"}),
-    awful.key({ modkey }, "Insert", function () awful.spawn(show_clipmark) end,
+    awful.key({ modkey, smodkey }, "i", function () awful.spawn(show_clipmark) end,
               {description = "show clipmark", group = "utils"}),
     awful.key({ modkey }, "bracketright", function () awful.spawn(cheatsheet) end,
               {description = "open cheatsheet", group = "utils"}),
