@@ -96,6 +96,7 @@ lazy.setup({
                 "tutor",
                 "matchit",
                 "matchparen",
+                "netrwPlugin",
                 "tarPlugin",
                 "osc52",
                 "zipPlugin",
