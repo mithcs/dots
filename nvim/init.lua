@@ -11,14 +11,14 @@ require('core.keymaps')
 require('core.lazy')
 
 require('plugins.autopairs')
+require('plugins.catppuccin')
+require('plugins.lsp')
+require('plugins.project')
 require('plugins.telescope')
 require('plugins.telescope-undo')
 require('plugins.treesitter')
-require('plugins.lsp')
-require('plugins.project')
-require('plugins.onedark')
 
 -- Color scheme
-vim.cmd.colorscheme "onedark"
+vim.cmd.colorscheme "catppuccin"
 
 -------------------------------------------
