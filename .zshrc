@@ -75,7 +75,7 @@ fzf-history-widget() {
 fzf-file-widget() {
     local file
     file=$(fd --type f --hidden --follow --exclude "$EXCLUDE" | fzf)
-    [ -n "$file" ] && nvim "$file"
+    [ -n "$file" ] && xdg-open "$file"
 }
 
 # Function to change directory using fzf and fd
