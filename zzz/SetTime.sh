@@ -3,6 +3,9 @@
 # This bash script retrieve the current date and time (from timeapi.io) and sets
 # the retrieved date and time via `timedatectl`
 
+# Depends on 'jq'
+
+
 # Path of rasi file
 rasi="$HOME/.config/rofi/dracula.rasi"
 
