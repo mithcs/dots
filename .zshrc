@@ -83,12 +83,4 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
-# Others
-# Flutter setup
-# export ANDROID_HOME=/opt/android-sdk
-# export FLUTTER=/opt/flutter/bin
-# export PATH=$PATH:$ANDROID_HOME/platform-tools:$FLUTTER
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH=$PATH:/home/veloXm/.rbenv/versions/3.3.5/bin
