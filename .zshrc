@@ -20,17 +20,15 @@ fi
 
 ## Default Programs
 export EDITOR="nvim"
-export TERMINAL="alacritty"
 export VISUAL="nvim"
+export TERMINAL="st"
 
 ## Alias
 alias \
     mpy='source $HOME/MyEnv/bin/activate' \
     mntsda4='sudo mount.ntfs-3g /dev/sda4 /mnt/' \
     xo='xdg-open' \
-    nn='$HOME/zzz/openNeovim.sh' \
-    ws='cd $HOME/Workspace/' \
-    nm='neomutt'
+    ws='cd $HOME/Workspace/'
 
 # Verbosity
 alias \
