@@ -49,10 +49,6 @@ local disabled_built_ins = {
    "getscriptPlugin",
    "gzip",
    "logipat",
-   -- "netrw",
-   -- "netrwPlugin",
-   -- "netrwSettings",
-   -- "netrwFileHandlers",
    "matchit",
    "tar",
    "tarPlugin",
@@ -62,13 +58,11 @@ local disabled_built_ins = {
    "vimballPlugin",
    "zip",
    "zipPlugin",
-   "tutor",
    "rplugin",
    "synmenu",
    "optwin",
    "compiler",
    "bugreport",
-   "ftplugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
