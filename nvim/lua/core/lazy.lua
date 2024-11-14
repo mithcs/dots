@@ -23,17 +23,6 @@ lazy.setup({
         -- Catppuccin
         { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-        -- neo-tree
-        {
-            "nvim-neo-tree/neo-tree.nvim",
-            branch = "v3.x",
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-                "MunifTanjim/nui.nvim",
-            }
-        },
-
         -- Treesitter
         { "nvim-treesitter/nvim-treesitter" },
 

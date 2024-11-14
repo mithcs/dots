@@ -19,7 +19,6 @@ require('plugins.lsp')
 require('plugins.colorizer')
 require('plugins.tailwind-colorizer')
 require('plugins.toggleterm')
-require('plugins.neo-tree')
 
 -- Color scheme
 vim.cmd.colorscheme "catppuccin"
