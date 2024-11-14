@@ -34,7 +34,7 @@ require("catppuccin").setup({
         mocha = {
             base = "#000000",
             -- mantle = "#000000",
-            -- crust = "#000000",
+            crust = "#000000",
             text = "#96fae0";
         },
     },

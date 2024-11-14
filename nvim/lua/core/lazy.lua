@@ -32,10 +32,6 @@ lazy.setup({
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
 
-
-        -- Project
-        { 'ahmedkhalf/project.nvim' },
-
         -- Colorizer
         {
             'norcalli/nvim-colorizer.lua',
