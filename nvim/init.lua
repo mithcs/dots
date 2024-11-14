@@ -12,13 +12,13 @@ require('core.lazy')
 
 require('plugins.autopairs')
 require('plugins.telescope')
-require('plugins.catppuccin')
 require('plugins.telescope-undo')
 require('plugins.treesitter')
 require('plugins.lsp')
 require('plugins.project')
+require('plugins.onedark')
 
 -- Color scheme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "onedark"
 
 -------------------------------------------

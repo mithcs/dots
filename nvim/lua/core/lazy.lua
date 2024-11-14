@@ -20,11 +20,11 @@ end
 -- Start setup
 lazy.setup({
     spec = {
-        -- Catppuccin
-        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
         -- Treesitter
         { "nvim-treesitter/nvim-treesitter" },
+
+        -- Onedark
+        { "navarasu/onedark.nvim", name = "onedark", priority = 1000 },
 
         -- Telescope
         {
@@ -35,6 +35,14 @@ lazy.setup({
 
         -- Project
         { 'ahmedkhalf/project.nvim' },
+
+        -- Colorizer
+        {
+            'norcalli/nvim-colorizer.lua',
+            config = function()
+                require("colorizer").setup()
+            end,
+        },
 
         -- Auto pairs
         {
