@@ -85,7 +85,8 @@ scripts_dir = " $HOME/zzz/"
 
 -- Programs
 terminal = "st"
-browser = "google-chrome-stable"
+-- browser = "google-chrome-stable"
+browser = "thorium-browser"
 file_explorer = "thunar"
 megasync = "megasync"
 editor = "nvim"
