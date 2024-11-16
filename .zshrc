@@ -59,16 +59,6 @@ EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config/ch
 # Use fd for fuzzy file finding
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-# Enable fuzzy history search
-fzf-history-widget() {
-    local selected
-    selected=$(fc -l -n -r | fzf)
-    if [ -n "$selected" ]; then
-        READLINE_LINE="$selected"
-        READLINE_POINT=${#READLINE_LINE}
-    fi
-}
-
 # Function to search files using fd
 fzf-file-widget() {
     local file
@@ -77,7 +67,6 @@ fzf-file-widget() {
 }
 
 # Function to change directory using fzf and fd
-# There is a issue somewhere so we have to press enter twice
 fzf-cd() {
     local dir
     dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf)
@@ -87,13 +76,11 @@ fzf-cd() {
 }
 
 # Set up widgets
-zle -N fzf-history-widget
 zle -N fzf-file-widget
 zle -N fzf-cd
 
 # Bind the widgets to keys
 bindkey '^F' fzf-file-widget
-bindkey '^R' fzf-history-widget
 bindkey '^G' fzf-cd
 
 # Others
