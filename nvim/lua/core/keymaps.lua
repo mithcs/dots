@@ -87,6 +87,9 @@ map('n', '<leader>R', ':cd %:h<CR>')
 -- Go to config file
 map('n', '<leader>c', ':e $MYVIMRC<CR>')
 
+-- Open explorer
+map('n', '<C-e>', ':Explore<CR>')
+
 -- Others
 
 -- Neo-clip
