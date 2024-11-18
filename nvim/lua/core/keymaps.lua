@@ -26,7 +26,9 @@ map('i', '<C-.>', '<Nop>')
 -- Buffer mappings
 map('n', '<Space>n', ':bn<CR>')
 map('n', '<Space>p', ':bp<CR>')
-map('n', '<Space>d', ':bd<CR>')
+
+-- Close easily
+map('n', '<Space>d', ':close<CR>')
 
 -- Create Split
 map('n', '<leader>s', ':split<CR>')
@@ -68,4 +70,8 @@ map('n', '<leader>c', ':e $MYVIMRC<CR>')
 
 -- Open explorer
 map('n', '<C-e>', ':Explore<CR>')
+
+-- Terminal mappings
+map('n', '<leader>t', ':terminal<CR>')
+map('t', 'jk', '<C-\\><C-n>')
 
