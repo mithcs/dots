@@ -16,8 +16,6 @@ require('plugins.catppuccin')
 require('plugins.telescope-undo')
 require('plugins.treesitter')
 require('plugins.lsp')
-require('plugins.colorizer')
-require('plugins.tailwind-colorizer')
 require('plugins.project')
 
 -- Color scheme

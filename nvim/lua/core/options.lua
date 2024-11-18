@@ -44,26 +44,6 @@ opt.showtabline = 2
 
 -- Disable builtin plugins
 local disabled_built_ins = {
-    "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
-    "gzip",
-    "tutor",
-    "logipat",
-    "matchit",
-    "tar",
-    "tarPlugin",
-    "rrhelper",
-    "spellfile_plugin",
-    "vimball",
-    "vimballPlugin",
-    "zip",
-    "zipPlugin",
-    "rplugin",
-    "synmenu",
-    "optwin",
-    "compiler",
-    "bugreport",
 }
 
 for _, plugin in pairs(disabled_built_ins) do

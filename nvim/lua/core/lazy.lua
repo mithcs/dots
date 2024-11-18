@@ -1,14 +1,14 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
+-- if not (vim.uv or vim.loop).fs_stat(lazypath) then
+--     vim.fn.system({
+--         "git",
+--         "clone",
+--         "--filter=blob:none",
+--         "https://github.com/folke/lazy.nvim.git",
+--         "--branch=stable", -- latest stable release
+--         lazypath,
+--     })
+-- end
 vim.opt.rtp:prepend(lazypath)
 
 -- Use a protected call so we don't error out on first use
@@ -52,19 +52,6 @@ lazy.setup({
             lazy = false,
         },
 
-        -- Colorizer
-        { "norcalli/nvim-colorizer.lua" },
-
-        -- tailwindcss colorizer
-        {
-            "roobert/tailwindcss-colorizer-cmp.nvim",
-            config = function()
-                require("tailwindcss-colorizer-cmp").setup({
-                    color_square_width = 2,
-                })
-            end
-        },
-
         -- Telescope-undo
         {
             "debugloop/telescope-undo.nvim",
@@ -94,5 +81,22 @@ lazy.setup({
         {'neovim/nvim-lspconfig'},
         {'hrsh7th/cmp-nvim-lsp'},
         {'hrsh7th/nvim-cmp'},
+    },
+
+    performance = {
+        rtp = {
+            -- disable some rtp plugins
+            disabled_plugins = {
+                "tohtml",
+                "gzip",
+                "tutor",
+                "matchit",
+                "matchparen",
+                "tarPlugin",
+                "osc52",
+                "zipPlugin",
+                "rplugin",
+            },
+        },
     },
 })
