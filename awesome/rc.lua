@@ -86,6 +86,7 @@ scripts_dir = " $HOME/zzz/"
 -- Programs
 terminal = "st"
 browser = "thorium-browser"
+browser2 = "vieb"
 file_explorer = "thunar"
 megasync = "megasync"
 editor = "nvim"
@@ -238,6 +239,8 @@ globalkeys = mytable.join(
               {description = "open zoomer", group = "launcher"}),
     awful.key({ modkey,  smodkey  }, "Return", function () awful.spawn(browser) end,
               {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey }, "v", function () awful.spawn(browser2) end,
+              {description = "open 2nd browser", group = "launcher"}),
     awful.key({ modkey, smodkey }, "m", function () awful.spawn(megasync, false) end,
               {description = "open megasync", group = "launcher"}),
 
