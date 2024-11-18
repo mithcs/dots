@@ -42,4 +42,4 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':lua require("telescope.builtin").fi
 -- vim.api.nvim_set_keymap('n', '<leader>gf', ':lua require("telescope.builtin").git_files()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', ':lua require("telescope.builtin").live_grep()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':lua require("telescope.builtin").help_tags()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ")})<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gs', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ")})<CR>', { noremap = true, silent = true })

@@ -18,7 +18,7 @@ require('plugins.treesitter')
 require('plugins.lsp')
 require('plugins.colorizer')
 require('plugins.tailwind-colorizer')
-require('plugins.toggleterm')
+require('plugins.project')
 
 -- Color scheme
 vim.cmd.colorscheme "catppuccin"

@@ -4,7 +4,6 @@ local g = vim.g       -- Global variables
 local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 
 -- General
--- opt.mouse = 'a'                                -- Enable mouse support
 opt.clipboard = 'unnamedplus'                  -- Copy/paste to system clipboard
 opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 opt.swapfile = false                           -- No swap file
@@ -13,6 +12,7 @@ opt.foldenable = false
 -- opt.textwidth = 80                             -- Set textwidth to 80 columns
 opt.wrap = false                               -- Wrap lines
 opt.fillchars:append({ eob = " " })            -- To remove tilde(~)
+
 vim.cmd([[autocmd FileType * setlocal formatoptions-=ro]]) -- No comment on new line if existing line is commented
 
 -- Neovim UI
@@ -44,25 +44,26 @@ opt.showtabline = 2
 
 -- Disable builtin plugins
 local disabled_built_ins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-   "rplugin",
-   "synmenu",
-   "optwin",
-   "compiler",
-   "bugreport",
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "tutor",
+    "logipat",
+    "matchit",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "spellfile_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "rplugin",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
 }
 
 for _, plugin in pairs(disabled_built_ins) do

@@ -23,9 +23,6 @@ vim.g.mapleader = '.'
 map('n', '<C-.>', '<Nop>')
 map('i', '<C-.>', '<Nop>')
 
--- Append easily
-map('n', '<leader>a', 'A')
-
 -- Buffer mappings
 map('n', '<Space>n', ':bn<CR>')
 map('n', '<Space>p', ':bp<CR>')
@@ -36,16 +33,7 @@ map('n', '<leader>s', ':split<CR>')
 map('n', '<leader>vs',':vsplit<CR>')
 
 -- Stay sane
--- map('i', 'jj', '<C-c>')
--- map('i', 'kj', '<C-c>')
-map('i', 'jk', '<C-c>')
-
--- map('n', ':Wq', ':wq<CR>')
--- map('n', ':Q', ':q<CR>')
-
--- Change split orientation
-map('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
-map('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
+map('i', 'jk', '<ESC>')
 
 -- Move around splits using Ctrl + {h,j,k,l}
 map('n', '<C-h>', '<C-w>h')
@@ -72,15 +60,6 @@ map('n', '<F12>', ':setlocal spell! spelllang=en<CR>')
 map('n', '<A-j>', ':m+<CR>')
 map('n', '<A-k>', ':m--<CR>')
 
--- Compile a C program
-map('n', '<leader>gc', ':!gcc -Wall % -o %:r.out<CR>')
-
--- Compile a C++ program
-map('n', '<leader>gC', ':!g++ -Wall % -o %:r.out<CR>')
-
--- Compile a Go program
-map('n', '<leader>go', ':!go build %<CR>')
-
 -- Set parent directory as root
 map('n', '<leader>R', ':cd %:h<CR>')
 
@@ -90,7 +69,3 @@ map('n', '<leader>c', ':e $MYVIMRC<CR>')
 -- Open explorer
 map('n', '<C-e>', ':Explore<CR>')
 
--- Others
-
--- Neo-clip
-map('n', '<leader>y', ':Telescope neoclip<CR>')
