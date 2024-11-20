@@ -65,7 +65,7 @@ cmp.setup({
         {name = 'path'},
         {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
-        {name = 'buffer', keyword_length = 2},
+        {name = 'buffer', keyword_length = 1},
     },
 
     mapping = cmp.mapping.preset.insert({
