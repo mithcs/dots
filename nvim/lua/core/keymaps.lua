@@ -26,6 +26,7 @@ map('i', '<C-.>', '<Nop>')
 -- Buffer mappings
 map('n', '<Space>n', ':bn<CR>')
 map('n', '<Space>p', ':bp<CR>')
+map('n', '<Space>c', ':BufOnly<CR>')
 
 -- Close easily
 map('n', '<Space>d', ':close<CR>')
@@ -66,7 +67,7 @@ map('n', '<A-k>', ':m--<CR>')
 map('n', '<leader>R', ':cd %:h<CR>')
 
 -- Go to config file
-map('n', '<leader>c', ':e $MYVIMRC<CR>')
+map('n', '<leader><leader><leader>', ':e $MYVIMRC<CR>')
 
 -- Terminal mappings
 map('n', '<leader>t', ':terminal<CR>')

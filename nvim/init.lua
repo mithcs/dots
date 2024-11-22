@@ -17,6 +17,9 @@ require('plugins.telescope')
 require('plugins.telescope-undo')
 require('plugins.treesitter')
 
+-- Custom Commands
+require('custom_commands.BufOnly')
+
 -- Color scheme
 vim.cmd.colorscheme "catppuccin"
 
