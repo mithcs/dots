@@ -86,7 +86,7 @@ scripts_dir = " $HOME/zzz/"
 -- Programs
 terminal = "st"
 browser = "thorium-browser"
-browser2 = "vieb"
+browser2 = "zen-browser"
 file_explorer = "thunar"
 megasync = "megasync"
 editor = "nvim"
