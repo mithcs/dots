@@ -42,6 +42,12 @@ alias \
     grep="grep --color=auto" \
     diff="diff --color=auto"
 
+# Git
+alias \
+    gits="git status" \
+    gitc="git commit" \
+    gitp="git push"
+
 # Others
 alias wireshark='sudo wireshark'
 alias baobab='GSK_RENDERER=cairo baobab'
