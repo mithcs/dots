@@ -90,7 +90,7 @@ browser2 = "zen-browser"
 file_explorer = "thunar"
 megasync = "megasync"
 editor = "nvim"
-zoomer = "zoomer"
+zoomer = "boomer"
 
 -- Utils
 add_clipmark = shell .. scripts_dir .. "AddToClipmark.sh"
