@@ -2,7 +2,7 @@
 
 # This script added selected text to clipmark
 
-clipmark="/home/veloXm/clipmark.txt"
+clipmark="$HOME/clipmark.txt"
 text=$(xclip -out -selection primary)
 
 if ! [ -f $clipmark ]; then
