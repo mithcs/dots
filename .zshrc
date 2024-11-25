@@ -1,7 +1,5 @@
-# Executes commands at the start of an interactive session.
 #
-# Inspired by:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+# Executes commands at the start of an interactive session.
 #
 
 ## Source Prezto.
@@ -57,7 +55,7 @@ alias cpc='xclip -selection clipboard'
 alias pgres='sudo su - postgres'
 alias rm='rm -I'
 
-# FZF setup
+## FZF setup
 
 # Stuff to exlude
 EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,.rustup}"
@@ -89,4 +87,3 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
-export PATH=$PATH:/home/veloXm/.rbenv/versions/3.3.5/bin
