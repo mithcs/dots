@@ -21,12 +21,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="st"
 
-## Alias
-alias \
-    mpy='source $HOME/MyEnv/bin/activate' \
-    mntsda4='sudo mount.ntfs-3g /dev/sda4 /mnt/' \
-    xo='xdg-open' \
-    ws='cd $HOME/Workspace/'
+## Alias-es
 
 # Verbosity
 alias \
@@ -47,13 +42,18 @@ alias \
     gitp="git push"
 
 # Others
-alias wireshark='sudo wireshark'
-alias baobab='GSK_RENDERER=cairo baobab'
-alias winetricks='GSK_RENDERER=cairo winetricks'
-alias qml='/usr/lib/qt6/bin/qml'
-alias cpc='xclip -selection clipboard'
-alias pgres='sudo su - postgres'
-alias rm='rm -I'
+alias wireshark='sudo wireshark' \
+    baobab='GSK_RENDERER=cairo baobab' \
+    winetricks='GSK_RENDERER=cairo winetricks' \
+    qml='/usr/lib/qt6/bin/qml' \
+    cpc='xclip -selection clipboard' \
+    pgres='sudo su - postgres' \
+    rm='rm -I' \
+    mpy='source $HOME/MyEnv/bin/activate' \
+    mntsda4='sudo mount.ntfs-3g /dev/sda4 /mnt/' \
+    xo='xdg-open' \
+    ws='cd $HOME/Workspace/'
+
 
 ## FZF setup
 
@@ -61,22 +61,16 @@ alias rm='rm -I'
 EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,.rustup}"
 
 # Use fd for fuzzy file finding
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
 
 # Function to search files using fd
 fzf-file-widget() {
-    local file
-    file=$(fd --type f --hidden --follow --exclude "$EXCLUDE" | fzf)
-    [ -n "$file" ] && xdg-open "$file"
+    xdg-open $(fd --type file --hidden --follow --exclude "$EXCLUDE" | fzf)
 }
 
-# Function to change directory using fzf and fd
+# Function to change directory using fzf
 fzf-cd() {
-    local dir
-    dir=$(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf)
-    if [ -n "$dir" ]; then
-        cd "$dir"
-    fi
+    cd $(fd --type d --hidden --type directory --exclude "$EXCLUDE" | fzf)
 }
 
 # Set up widgets
