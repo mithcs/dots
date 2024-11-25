@@ -4,11 +4,6 @@ Framework: prezto
 
 Theme: kylewest
 
-wm: i3
-> switch to awesome?
+wm: awesomewm
 
 uname -r: 6.6.3-arch1-1
-
-
-
-- Not using neomutt anymore
