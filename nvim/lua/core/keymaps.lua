@@ -43,7 +43,6 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
-
 -- Windows resizing
 map("n", "<C-Up>", ":resize +2<CR>")
 map("n", "<C-Down>", ":resize -2<CR>")
@@ -72,4 +71,10 @@ map('n', '<leader><leader><leader>', ':e $MYVIMRC<CR>')
 -- Terminal mappings
 map('n', '<leader>t', ':terminal<CR>')
 map('t', 'jk', '<C-\\><C-n>')
+
+-- -- to move around splits
+map('t', '<C-h>', '<C-\\><C-n><C-w>h')
+map('t', '<C-j>', '<C-\\><C-n><C-w>j')
+-- map('t', '<C-k>', '<C-\\><C-n><C-w>k')
+-- map('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
