@@ -58,7 +58,7 @@ alias wireshark='sudo wireshark' \
 ## FZF setup
 
 # Stuff to exlude
-EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config/chromium,go/pkg/mod,.wine,.themes,.cargo,.rustup}"
+EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config,go/pkg/mod,.wine,.themes,.cargo,.rustup,.zen}"
 
 # Use fd for fuzzy file finding
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
