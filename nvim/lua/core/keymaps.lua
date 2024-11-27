@@ -1,11 +1,11 @@
 ---@diagnostic disable: undefined-global           -- undefined global vim
 -- Define keymaps of Neovim and installed plugins
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- --------------------- --------------------- ---------------------
@@ -77,4 +77,7 @@ map('t', '<C-h>', '<C-\\><C-n><C-w>h')
 map('t', '<C-j>', '<C-\\><C-n><C-w>j')
 -- map('t', '<C-k>', '<C-\\><C-n><C-w>k')
 -- map('t', '<C-l>', '<C-\\><C-n><C-w>l')
+
+-- Indent entire file
+map('n', '<leader>=', 'gg=G\'\'')
 

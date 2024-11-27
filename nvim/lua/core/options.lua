@@ -10,7 +10,7 @@ opt.swapfile = false                           -- No swap file
 opt.colorcolumn = '81'                         -- Line lenght marker at 80 columns
 opt.foldenable = false
 -- opt.textwidth = 80                             -- Set textwidth to 80 columns
-opt.wrap = false                               -- Wrap lines
+-- opt.wrap = false                               -- Wrap lines
 opt.fillchars:append({ eob = " " })            -- To remove tilde(~)
 
 vim.cmd([[autocmd FileType * setlocal formatoptions-=ro]]) -- No comment on new line if existing line is commented
