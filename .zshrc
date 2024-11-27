@@ -81,3 +81,5 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
+
+export PATH=$PATH:/home/veloXm/.rbenv/versions/3.3.5/bin
