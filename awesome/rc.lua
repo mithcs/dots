@@ -110,7 +110,6 @@ screenshot_clipboard = shell .. scripts_dir .. "ScreenshotToClipboard.sh"
 rofi_launcher = shell .. " $HOME/.config/rofi/launchers/type-1/launcher.sh"
 rofi_powermenu = shell .. " $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
 btop = " btop"
-neomutt = " neomutt"
 
 -- Others
 editor_cmd = terminal .. " -e " .. editor
@@ -233,8 +232,6 @@ globalkeys = mytable.join(
               {description = "open file explorer", group = "launcher"}),
     awful.key({ modkey }, "q", function () awful.spawn(terminal .. btop, false) end,
               {description = "open btop", group = "launcher"}),
-    awful.key({ modkey }, "n", function () awful.spawn(terminal .. neomutt) end,
-              {description = "open neomutt", group = "launcher"}),
     awful.key({ modkey }, "period", function () awful.spawn(zoomer, false) end,
               {description = "open zoomer", group = "launcher"}),
     awful.key({ modkey,  smodkey  }, "Return", function () awful.spawn(browser) end,
