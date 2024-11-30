@@ -58,7 +58,7 @@ alias wireshark='sudo wireshark' \
 ## FZF setup
 
 # Stuff to exlude
-EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config,go/pkg/mod,.wine,.themes,.cargo,.rustup,.zen}"
+EXCLUDE="{.git,MyEnv,.local,.cache,.local,.npm,.nvim,.zprezto,.gradle,.config,go/pkg/mod,.wine,.themes,.cargo,.rustup,.zen,.rbenv}"
 
 # Use fd for fuzzy file finding
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
@@ -81,5 +81,3 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
-
-export PATH=$PATH:/home/veloXm/.rbenv/versions/3.3.5/bin
