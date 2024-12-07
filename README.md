@@ -81,7 +81,7 @@ Plugins:
 
 **rofi** is used as application launcher, and so much more.
 
-Using theme designed by (adi1090x)[https://github.com/adi1090x/rofi] with some modifications. And dracula.rasi.
+Using theme designed by [adi1090x](https://github.com/adi1090x/rofi) with some modifications. And dracula.rasi.
 
 Required by several scripts too.
 
