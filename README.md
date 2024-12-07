@@ -26,10 +26,14 @@ Configured to look simple and neat.
 [**thunar**](https://docs.xfce.org/xfce/thunar/start) is a modern file manager, designed for the Xfce Desktop Environment but works fine on every wm I tried.
 
 Custom actions:
-    - **Create Archive**: Create an archive in 7z format
-    - **Extract Archive**: Extract archive(s)
-    - **Create Archive(zip)**: Create an archive in zip format
-    - **Extract to**: Extract the archive to its own folder
+- **Create Archive**:
+    Create an archive in 7z format
+- **Extract Archive**:
+    Extract archive(s)
+- **Create Archive(zip)**:
+    Create an archive in zip format
+- **Extract to**:
+    Extract the archive to its own folder
 
 </details>
 
