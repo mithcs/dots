@@ -42,8 +42,7 @@ Custom actions:
     
 [**neovim**](https://neovim.io) is a hyperextensible **Vim-based** text editor. This is the solution I prefer for writing and managing all my code and configuration files. Even this README is written using neovim.
 
-> [!NOTE]
-> Auto-completion is disabled by default, enable it via <kbd>&lt;leader&gt;nt</kbd>
+> 📝 Note: Auto-completion is disabled by default, enable it via <kbd>&lt;leader&gt;nt</kbd>
 
 Plugins:
 - **lazy.nvim**:
