@@ -2,7 +2,7 @@
 # /home/veloXm/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
-# Generated on Sat Dec  7 13:12:16 2024
+# Generated on Sat Dec  7 14:09:39 2024
 #
 
 # ConfigProperties:
@@ -14,19 +14,19 @@ SliderTextEntries = Yes
 IncludeDisplayNameInConfigFile = No
 ShowQuitDialog = Yes
 UpdateRulesOnProfileNameChange = Yes
-Timer = Memory_Used_(GPU_0),Yes,3000
-Timer = Thermal_Monitor_(GPU_0),Yes,1000
 Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = Memory_Used_(GPU_0),Yes,3000
 
 # Attributes:
 
-0/SyncToVBlank=1
+0/SyncToVBlank=0
 0/LogAniso=0
 0/FSAA=12
 0/TextureSharpen=0
-0/TextureClamping=1
+0/TextureClamping=0
 0/FXAA=0
-0/AllowFlipping=1
+0/AllowFlipping=0
 0/FSAAAppControlled=0
 0/LogAnisoAppControlled=0
 0/OpenGLImageSettings=3
