@@ -54,6 +54,18 @@ alias wireshark='sudo wireshark' \
     xo='xdg-open' \
     ws='cd $HOME/Workspace/'
 
+# Sass watcher
+swatch() {
+    if [[ $# -ne 2 ]]; then
+        echo "Usage: swatch [input] [output]"
+        return 1
+    fi
+    while true; do
+        inotifywait "$1" -e close_write -qq
+        sassc "$1" "$2" --style compressed
+        echo "👍️"
+    done
+}
 
 ## FZF setup
 
