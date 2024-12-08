@@ -60,6 +60,7 @@ swatch() {
         echo "Usage: swatch [input] [output]"
         return 1
     fi
+    echo "Watching $1..."
     while true; do
         inotifywait "$1" -e close_write -qq
         sassc "$1" "$2" --style compressed
