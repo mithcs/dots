@@ -114,10 +114,11 @@ TODO
 - [ ] Write about tools which are not used now, but were used and exists in the repository
 - [ ] Add System Information
 - [ ] Modularize awesomewm config file
-- [ ] Write about other things like GTK theme and more...
-- [ ] Write about `SymLinker.sh`
+- [ ] Document other things like GTK theme and more...
+- [ ] Document `SymLinker.sh`
+- [ ] Document `config.toml` - config file for greetd at /etc/greetd/
 
-Last updated: 07-12-2024;
+Last updated: 14-12-2024;
 
 
 
