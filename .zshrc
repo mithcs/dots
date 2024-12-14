@@ -94,3 +94,5 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
+# COMPOSER SETUP
+export PATH=/home/veloXm/.config/composer/vendor/bin:$PATH
