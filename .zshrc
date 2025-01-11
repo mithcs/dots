@@ -97,5 +97,3 @@ bindkey '^G' fzf-cd
 # COMPOSER SETUP
 export PATH=/home/veloXm/.config/composer/vendor/bin:$PATH
 
-# ANDROID DEVELOPMENT
-export PATH=/opt/android-sdk/tools/bin:$PATH
