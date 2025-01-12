@@ -210,7 +210,7 @@ local mywifisig = awful.widget.watch(
         end
     end
 )
-wificon:connect_signal("button::press", function() awful.spawn(string.format("%s -e wavemon", awful.util.terminal)) end)
+wificon:connect_signal("button::press", function() awful.spawn(string.format("%s -e nmtui", awful.util.terminal)) end)
 
 -- Weather
 --[[ to be set before use
