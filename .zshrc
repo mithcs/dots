@@ -94,3 +94,9 @@ zle -N fzf-cd
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd
 
+# Flutter
+export PATH=/opt/flutter/bin:$PATH
+
+# Android
+export ANDROID_HOME=$HOME/Android/android-sdk
+export PATH=$HOME/Android/android-sdk/platform-tools:$PATH
