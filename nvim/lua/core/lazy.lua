@@ -32,6 +32,15 @@ lazy.setup({
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
 
+        -- Indent blankline
+        {
+            "lukas-reineke/indent-blankline.nvim",
+            main = "ibl",
+            ---@module "ibl"
+            ---@type ibl.config
+            opts = {},
+        },
+
         -- Colorizer
         {
             'norcalli/nvim-colorizer.lua',
