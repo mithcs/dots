@@ -42,6 +42,15 @@ opt.tabstop = 4             -- 1 tab == 4 spaces
 opt.smartindent = true      -- Auto indent new lines
 opt.showtabline = 2
 
+opt.list = true
+opt.listchars = {
+    -- tab = "▸ ",
+    -- trail = "·",
+    -- extends = ">",
+    -- precedes = "<",
+    space = "⋅"
+}
+
 -- Disable builtin plugins
 local disabled_built_ins = {
 }
