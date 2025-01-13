@@ -7,13 +7,13 @@ require("mason-lspconfig").setup({
     ensure_installed = { 'pyright', 'clangd', 'gopls', 'rust_analyzer' },
 })
 
+local on_attach = require('plugins.lsp_opts').on_attach
 -- -----------------------
 -- Custom lsp
 -- -----------------------
 if not configs.qml6_lsp then
     configs.qml6_lsp = {
         default_config = {
-            autostart = false,
             cmd = {'qmlls6'},
             filetypes = {'qml'},
             root_dir = function(fname)
@@ -24,6 +24,33 @@ if not configs.qml6_lsp then
     }
 end
 
+if not configs.dartls then
+    configs.dartls = {
+        default_config = {
+            cmd = { "dart", "language-server", "--protocol=lsp" },
+            filetypes = { "dart" },
+            init_options = {
+                closingLabels = true,
+                flutterOutline = true,
+                onlyAnalyzeProjectsWithOpenFiles = true,
+                outline = true,
+                suggestFromUnimportedLibraries = true
+            },
+            root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname) or vim.fn.getcwd()
+            end,
+            settings = {
+                dart = {
+                    completeFunctionCalls = true,
+                    showTodos = true
+                }
+            },
+        },
+    }
+end
+require'lspconfig'.dartls.setup({
+    on_attach = on_attach
+})
 -- -----------------------
 -- Rust
 -- -----------------------
@@ -43,9 +70,9 @@ lspconfig.rust_analyzer.setup({
             cargo_workspace_dir = vim.fn.json_decode(cargo_metadata)['workspace_root']
         end
         return cargo_workspace_dir
-        or cargo_crate_dir
-        or lspconfig.util.root_pattern 'rust-project.json'(fname)
-        or lspconfig.util.find_git_ancestor(fname)
+            or cargo_crate_dir
+            or lspconfig.util.root_pattern 'rust-project.json'(fname)
+            or lspconfig.util.find_git_ancestor(fname)
     end,
     settings = {
         ["rust-analyzer"] = {}
@@ -112,14 +139,14 @@ cmp.setup({
 
 -- Toggle completions
 local function toggle_autocomplete()
-  local current_setting = cmp.get_config().completion.autocomplete
-  if current_setting and #current_setting > 0 then
-    cmp.setup({ completion = { autocomplete = false } })
-    print('Autocomplete disabled')
-  else
-    cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
-    print('Autocomplete enabled')
-  end
+    local current_setting = cmp.get_config().completion.autocomplete
+    if current_setting and #current_setting > 0 then
+        cmp.setup({ completion = { autocomplete = false } })
+        print('Autocomplete disabled')
+    else
+        cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
+        print('Autocomplete enabled')
+    end
 end
 
 vim.api.nvim_create_user_command('NvimCmpToggle', toggle_autocomplete, {})
@@ -128,8 +155,6 @@ vim.api.nvim_set_keymap('n', '<leader>nt', ':NvimCmpToggle<CR>', { noremap = tru
 -- -----------------------
 -- Setup lsp servers
 -- -----------------------
-local on_attach = require('plugins.lsp_opts').on_attach
-
 require('mason-lspconfig').setup_handlers({
     function(server)
         local opts = {
