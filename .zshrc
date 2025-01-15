@@ -98,5 +98,8 @@ bindkey '^G' fzf-cd
 export PATH=/opt/flutter/bin:$PATH
 
 # Android
-export ANDROID_HOME=$HOME/Android/android-sdk
-export PATH=$HOME/Android/android-sdk/platform-tools:$PATH
+export ANDROID_HOME="$HOME/Android/android-sdk"
+export PATH="$HOME/Android/android-sdk/platform-tools:$PATH"
+
+# Java Options
+export JAVA_TOOL_OPTIONS='-Xmx512m -Xms128m'
