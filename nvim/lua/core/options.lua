@@ -44,7 +44,7 @@ opt.showtabline = 2
 
 opt.list = true
 opt.listchars = {
-    -- tab = "▸ ",
+    tab = "▸ ",
     -- trail = "·",
     -- extends = ">",
     -- precedes = "<",
