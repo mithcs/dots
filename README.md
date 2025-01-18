@@ -1,8 +1,5 @@
 ----- START OF README -----
 
-Higher Level TODO:
-- Setup `flutter-tools` - *do not configure dartls manually*
-
 ## Softwares' configuration available in this repository:
 <details>
 <summary>awesomewm</summary>

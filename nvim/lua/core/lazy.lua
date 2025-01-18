@@ -65,6 +65,16 @@ lazy.setup({
             lazy = false,
         },
 
+        -- Flutter-tools
+        {
+            'nvim-flutter/flutter-tools.nvim',
+            lazy = false,
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+            },
+            config = true,
+        },
+
         -- Telescope-undo
         {
             "debugloop/telescope-undo.nvim",
@@ -81,11 +91,19 @@ lazy.setup({
                     desc = "undo history",
                 },
             },
-            config = function(_, opts)
-                require("telescope").setup(opts)
+            config = function()
                 require("telescope").load_extension("undo")
             end,
         },
+
+        -- Telescope ui select
+        {
+            'nvim-telescope/telescope-ui-select.nvim',
+            config = function()
+                require("telescope").load_extension("ui-select")
+            end,
+        },
+
 
         -- LSP
         {'williamboman/mason.nvim'},

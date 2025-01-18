@@ -81,3 +81,5 @@ map('t', '<C-j>', '<C-\\><C-n><C-w>j')
 -- Indent entire file
 map('n', '<leader>=', 'gg=G\'\'')
 
+-- Flutter Run
+map('n', 'Fr', ':FlutterRun --no-pub --no-enable-dart-profiling --no-cache-startup-profile<CR>')

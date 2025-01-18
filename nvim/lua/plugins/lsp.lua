@@ -48,6 +48,7 @@ if not configs.dartls then
         },
     }
 end
+
 require'lspconfig'.dartls.setup({
     on_attach = on_attach
 })
