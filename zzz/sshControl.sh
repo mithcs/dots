@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 if [ -n "$SSH_CONNECTION" ]; then
     alias rm="echo 'Execution of rm is disabled: '"

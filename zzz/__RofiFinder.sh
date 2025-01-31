@@ -1,6 +1,7 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This is an example command to invoke this script using 'rofi'. The script is run in 'find' mode.
+# NOT USING THIS ANYMORE...
 
 # Check if the script has the --launch argument
 if [ "$1" == "--launch" ]; then

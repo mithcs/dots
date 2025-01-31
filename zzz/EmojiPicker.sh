@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 # Select STYLE and THEME
 style="style-10"
